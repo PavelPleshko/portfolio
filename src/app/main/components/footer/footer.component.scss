@@ -1,0 +1,25 @@
+.material-footer{
+	
+
+	&-copyright{
+	position:relative;
+	left:5%;
+	font-size:60%;
+	font-family: superstar;
+	}
+
+	&-powered{
+	position:absolute;
+	right:3%;
+	font-size:60%;
+	font-family:cursive;
+
+	a{
+	color:#448aff;
+	&:hover{
+	text-decoration:none;
+	color:#82b1ff;
+	}
+	}
+	}
+}

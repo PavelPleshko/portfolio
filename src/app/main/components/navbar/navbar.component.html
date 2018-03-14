@@ -1,0 +1,22 @@
+
+  <nav class="material-navbar navbar navbar-expand-sm navbar-light">
+      <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#primaryNavbar" aria-controls="primaryNavbar" aria-expanded="false" aria-label="Toggle navigation">
+    <i class="material-icons">menu</i>
+  </button>
+   <div class="collapse navbar-collapse" id="primaryNavbar">
+    <ul class="navbar-nav">
+  <li class="nav-item"><a [routerLink]="['home']"><button mat-button><mat-icon aria-label="home" aria-hidden="true">home</mat-icon><span class="cdk-visually-hidden"></span>Home</button></a></li>
+  <li class="nav-item"><a [routerLink]="['projects']"><button mat-button><mat-icon aria-label="projects" aria-hidden="true">computer</mat-icon><span class="cdk-visually-hidden"></span>Projects</button></a></li>
+  <li class="nav-item"><a [routerLink]="['contacts']"><button mat-button><mat-icon aria-label="contacts" aria-hidden="true">chat</mat-icon><span class="cdk-visually-hidden"></span>Contacts</button></a></li>
+</ul>
+</div>
+  <div class="social-list ml-auto">
+  	<div *ngFor="let social of socials" matTooltip="{{social.title}}" [matTooltipPosition]="'below'">
+  		<span class="social-list-item">
+  			<a href="{{social.link}}"><i class="{{social.iconName}}"></i></a>
+  		</span>
+  	</div>
+  
+  </div>
+</nav>
+

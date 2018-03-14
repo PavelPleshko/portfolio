@@ -1,0 +1,67 @@
+:host{
+	position:relative;
+	height:100%;
+	display:flex;
+	align-items:flex-end;
+}
+.resume{
+color:#fff;
+
+&-body{
+		p{
+		font-family:'flashrogers';
+		margin-left:35px;
+		color:#fff;
+		opacity: .9;
+		line-height: 30px;
+		}
+
+}
+&-header{
+	font-weight:900;
+	font-size: 200%;
+	text-align:center;
+	font-family:'superstar';
+	text-transform:uppercase;
+	color:#1de9b6;
+	&:after{
+	content:'?';
+	font-family:initial;
+	}
+	}
+	&-actions{
+	text-align:center;
+	
+}
+}
+
+@media(max-width: 768px){
+	.resume{
+	font-size:100%;
+
+	&-body{
+
+	p{
+	line-height:1.2em;
+	}
+	}
+
+	&-header{
+	font-size: 150%;
+	font-weight:700;
+	text-align:center;
+	}
+
+	&-actions{
+	text-align:center;
+	button{
+	font-size:80%;
+	&.custom-btn-secondary.big{
+	padding:0 1em !important;
+	}
+	}
+	}
+	}
+
+
+}

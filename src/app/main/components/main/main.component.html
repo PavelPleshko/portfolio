@@ -1,0 +1,9 @@
+<app-preloader></app-preloader>
+<div class="landing-pic">
+
+<app-photo [abouts]="abouts" [resumeLink]="resumeLink" (contentLoaded)="onContentLoaded()" [animationState]="animationState"></app-photo>
+<app-skill-list [skills]="skills" (contentLoaded)="onContentLoaded()"></app-skill-list>
+
+<app-status [statuses]="statuses"></app-status>
+
+</div>

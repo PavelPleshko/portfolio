@@ -1,0 +1,23 @@
+<div class="profile">
+	<div class="main-wrapper">
+		<div class="profile-about d-none d-sm-block" [@slideInOutWithFadeLeft]="animationState">
+			<app-about [data]="leftColumn"></app-about>
+		</div>
+		<div class="profile-resume d-none d-sm-block" [@slideInOutWithFadeRight]="animationState">
+			<app-download-resume [data]="rightColumn"></app-download-resume>
+		</div>
+		<div class="d-block d-sm-none text-center buttons-mobile">
+			<a mat-raised-button [routerLink]="['/projects']" class="custom-btn-primary">
+				MY PROJECTS
+			</a>
+			<a mat-raised-button href="{{resumeLink}}" class="custom-btn-secondary">
+				RESUME
+			</a>
+		</div>
+	</div>
+	<div class="profile-img" [style.background-image]="image">
+		
+	</div>
+	<div class="profile-meta">
+	</div>
+</div>

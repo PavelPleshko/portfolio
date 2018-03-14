@@ -1,0 +1,14 @@
+<div class="card skill-card">
+<img src="https:{{skill.icon.fields.file.url}}" alt="{{skill.title}}" class="skill-card-image">
+<div class="skill-card-body card-body">
+
+<ul class="mt-5 list-group">
+	<li class="list-group-item list-group-item-action" *ngFor="let ability of skill.abilities">
+		<span class="skill-card-list-item-desc">{{ability}}</span><mat-icon class="skill-card-list-item-icon">verified_user</mat-icon>
+	</li>
+</ul>
+</div>
+
+
+
+</div>

@@ -1,0 +1,10 @@
+
+<div class="resume" *ngIf="data">
+	<h4 class="resume-header">{{data.title}}</h4>
+	<div class="resume-body">
+		<p class="resume-body-call">{{data.body}}</p>
+		<div class="resume-actions">
+			<button mat-raised-button class="custom-btn-secondary big"><a href="{{data.resumeLink}}" target="_blank">DOWNLOAD</a></button>
+		</div>
+	</div>
+</div>

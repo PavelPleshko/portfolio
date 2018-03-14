@@ -1,0 +1,56 @@
+
+              
+                 <div class="" *ngIf="!submitted">
+                  <form [formGroup]="contactForm" class="contact-form card">
+                  	 <h5 class="contact-form-header mb-4">Contact form</h5>
+                  	<div>
+                  	 <mat-form-field  class="col-md-8 col-sm-12">
+                      <input [errorStateMatcher]="matcher" matInput type="text" class="" formControlName="name" id="name" placeholder="Name">
+                       <mat-error *ngIf="contactForm.get('name').hasError('required')">
+				      Name is <strong>required</strong>
+				    </mat-error>
+                    </mat-form-field>
+                </div>
+                <div>
+                    <mat-form-field  class="col-md-8 col-sm-12">
+                     
+                      <input [errorStateMatcher]="matcher" matInput type="text" class="" formControlName="subject" id="subject" placeholder="Subject">
+                       <mat-error *ngIf="contactForm.get('subject').hasError('required')">
+				      Subject is <strong>required</strong>
+				    </mat-error>
+                    </mat-form-field>
+                </div>
+                <div>
+                    <mat-form-field class="col-md-8 col-sm-12">
+                      <input [errorStateMatcher]="matcher" matInput type="email" class="" id="email" formControlName="email" aria-describedby="emailHelp" placeholder="Enter email">
+                        <mat-error *ngIf="contactForm.get('email').hasError('email') && !contactForm.get('email').hasError('required')">
+					      Please enter a valid email address
+					    </mat-error>
+				    <mat-error *ngIf="contactForm.get('email').hasError('required')">
+				      Email is <strong>required</strong>
+				    </mat-error>
+                    </mat-form-field>
+                   </div>
+
+                   <div class="mb-2">
+                     <mat-form-field class="col-md-8 col-sm-12">
+                      <textarea [errorStateMatcher]="matcher" #messageInput matInput class="" id="message" rows="5" formControlName="message" placeholder="Type your message in here..."></textarea>
+                       <mat-hint align="end">{{messageInput.value?.length || 0}}</mat-hint>
+                       <mat-error *ngIf="contactForm.get('message').hasError('required')">
+				      Message is <strong>required</strong>
+				    </mat-error>
+                    </mat-form-field>
+                   </div>
+
+                      <div class=""><button mat-raised-button (click)="submitForm()" class="custom-btn-primary big">Submit</button></div>
+                    
+                  </form>
+
+                </div>
+              <div *ngIf="submitted && !error">
+                  <p class="alert alert-success"><mat-icon class="notification-icon">done</mat-icon>Thank you for your message! I will get back to you ASAP.</p>
+                </div>
+                <div *ngIf="submitted && error">
+                  <p class="alert alert-danger"><mat-icon class="notification-icon">close</mat-icon>An error occurred. Please try again later. <small><b>{{error}}</b></small>. <a (click)="resetState()"><strong>Retry?</strong></a></p>
+                </div>
+    

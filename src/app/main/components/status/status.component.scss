@@ -1,0 +1,152 @@
+.status{
+
+	a{
+	text-decoration:none;
+	}
+	&-body{
+		position: absolute;
+		left: 50%;
+		top: 40%;
+		transform: translateX(-50%) translateY(-50%);
+		text-align: center;
+		&-header{
+			font-size: 2.5rem;
+			font-weight: 900;
+			color: #a09797;
+		}
+		&-info{
+			color: #4caf50;
+			font-size: 2rem;
+			font-family: superstar;
+			letter-spacing:2px;
+			i{
+			font-size: 5rem;
+			}
+		}
+	}
+	&-img-wrapper{
+	overflow:hidden;
+	}
+
+	&-img{
+	position:relative;
+	width:100%;
+
+
+	}
+
+	.message{
+		margin-top:3.5rem;
+	&-body{
+			padding: 50px;
+			background:rgba(0,0,0,.05);
+			margin-right: 60px;
+			border-radius:15px;
+			&:before{
+			content:'';
+			position:absolute;
+			border-top:28px solid transparent;
+			border-bottom:28px solid transparent;
+			border-right:48px solid rgba(0,0,0,.05);
+			left: -33px;
+    		top: 30px;
+
+			}
+			&-text{
+				font-family:'flashrogers';
+				color: #7b6b6b;
+				font-size: 120%;
+			}
+	}
+
+	}
+}
+
+@media(max-width: 768px){
+	
+
+.status{
+
+	&-img{
+	    margin-left:2.5em;
+	    width:90%;
+	}
+
+	&-body{
+	left:55%;
+	top:50%;
+	width:90%;
+
+	&-info{
+	font-size: 1.2rem;
+	}
+	&-header{
+	font-size:1em;
+	}
+	}
+	.message{
+	margin-top:0;
+
+	&-body{
+	padding:30px;
+	margin-right:0;
+	&:before{
+
+    border-top: 20px solid transparent;
+    border-bottom: 20px solid transparent;
+    border-right: 20px solid rgba(0, 0, 0, 0.05);
+    left: -5px;
+	}
+	&-text{
+	font-size:100%;
+
+	}
+	}
+	}
+}
+	
+}
+
+@media only screen 
+  and (max-device-width: 480px){
+  	.status{
+  	transform: translateY(-7em);
+  	text-align:center;
+
+  	&-img-wrapper{
+	right: 7%;
+	}
+
+	&-img{
+	width:100%;
+	transform:rotate(90deg);
+	}
+
+	&-body{
+	left:58%;
+
+	&-info{
+	font-size: 1rem;
+	}
+	
+	}
+	.message{
+	transform: translateY(-4em);
+	margin-top:0;
+
+	&-body{
+	margin:1em;
+	&:before{
+	top:-1.7%;
+	left:50%;
+	transform:translateX(-50%);
+    border:none;
+    border-right: 20px solid transparent;
+    border-left: 20px solid transparent;
+    border-bottom: 20px solid rgba(0, 0, 0, 0.05);
+    
+	}
+	}
+	}
+}
+  }

@@ -1,0 +1,64 @@
+.material-navbar{
+	position:fixed;
+	box-shadow:1px 5px 15px 2px rgba(0,0,0,.5);
+	z-index:99;
+	background-color: rgba(63, 81, 181,.9);
+	width:100%;
+
+	.navbar-toggler{
+	font-size:110%;
+	color:#fff;
+	}
+
+	a{
+	color:#fff;
+	}
+	button{
+	font-family: Roboto,Helvetica Neue,sans-serif;
+	font-size: 14px;
+	font-weight: 600;
+
+	
+	mat-icon{
+	margin-right:4px;
+	vertical-align:middle;
+	}
+	}
+	.social-list{
+	display:flex;
+	list-style:none;
+	position:absolute;
+	right:5.5em;
+	top: 50%;
+	transform: translateY(-50%);
+
+	&-item{
+	margin:0 12px;
+	opacity:0.8;
+	cursor:pointer;
+	border-radius:3px;
+	transition:.2s linear;
+
+	&:hover{
+	opacity:1;
+	transform:scale(1.1);
+	}
+	}
+	}
+
+
+}
+
+
+@media only screen 
+  and (max-device-width: 480px){
+  .material-navbar{
+
+  	.social-list{
+  		
+  		position:relative;
+  		transform: translateY(0);
+  	}
+  }
+  }
+
