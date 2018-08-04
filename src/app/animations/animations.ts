@@ -25,8 +25,8 @@ export const slideInOutAnimation =
    trigger('slideInOutWithFadeLeft', [
     
     transition('inactive => active', [
-      style({left: '-10%',opacity:0}),
-      animate('1s ease-in-out', style({left: '3%',opacity:1}))
+      style({left: '-15%',opacity:0}),
+      animate('1s ease-in-out', style({left: '0',opacity:1}))
     ]),
     transition('active => inactive', [ 
       style({left: '3%',opacity:1}),
@@ -38,7 +38,7 @@ export const slideInOutAnimation =
     
     transition('inactive => active', [
       style({right: '-10%',opacity:0}),
-      animate('1s ease-in-out', style({right: '3%',opacity:1}))
+      animate('1s ease-in-out', style({right: '0',opacity:1}))
     ]),
     transition('active => inactive', [ 
       style({right: '3%',opacity:1}),
@@ -49,11 +49,24 @@ export const slideInOutAnimation =
 
     export const dropFromTop = 
    trigger('dropFromTop', [
-    state('void', style({position:'fixed'}) ),
-    state('*', style({position:'fixed'}) ),
+    state('void', style({position:'absolute'}) ),
+    state('*', style({position:'absolute'}) ),
     transition(':enter', [
       style({bottom: '100%'}),
       animate('0.5s ease-in-out', style({bottom: '0%'}))
+    ])
+]);
+
+
+      export const scaleInOut = 
+   trigger('scaleInOut', [
+    transition(':enter', [
+      style({transform: 'scale(.1,.1)'}),
+      animate('0.5s ease-in-out', style({transform: 'scale(1,1)'}))
+    ]),
+    transition(':leave', [
+      style({transform: 'scale(1,1)'}),
+      animate('0.5s ease-in-out', style({transform: 'scale(.1,.1)'}))
     ])
 ]);
 
@@ -77,4 +90,16 @@ export const slideInOutAnimation =
           stagger(300, animateChild())
         )
       ]),
+    ])
+
+
+  export const navbarAnimation = trigger('toggle',[
+    state(
+      'hidden',
+        style({opacity:0,transform:'translateY(-100%)'})
+      ),
+    state(
+      'visible',
+      style({opacity:1,transform:'translateY(0)'})),
+    transition('* => *',animate('200ms ease-in'))
     ])

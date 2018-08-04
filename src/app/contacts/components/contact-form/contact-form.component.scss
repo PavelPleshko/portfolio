@@ -6,8 +6,21 @@
 	border: none;
 
 	&-header{
-	font-family:'superstar';
+	font-weight:700;
 	font-size:170%;
+    padding-bottom: 14px;
+    position:relative;
+
+    &:after{
+    	content:'';
+    	position:absolute;
+    	height:5px;
+    	width:3rem;
+    	bottom:0;
+    	left:50%;
+    	transform:translateX(-50%);
+    	background:#00FF9B;
+    }
 	}
 
 	

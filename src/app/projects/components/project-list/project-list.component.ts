@@ -1,4 +1,10 @@
-import { Component, OnInit,Input,ChangeDetectionStrategy } from '@angular/core';
+import { Component, OnInit,Input,ChangeDetectionStrategy,ChangeDetectorRef,Renderer,ViewChild,ElementRef } from '@angular/core';
+import {ContentService} from '../../../shared/services/content.service';
+import {Observable} from 'rxjs/Observable';
+import {fromEvent} from 'rxjs/observable/fromEvent';
+import {defer} from 'rxjs/observable/defer';
+import {switchMap,takeUntil,map,tap} from 'rxjs/operators';
+
 
 @Component({
   selector: 'app-project-list',
@@ -8,9 +14,16 @@ import { Component, OnInit,Input,ChangeDetectionStrategy } from '@angular/core';
 })
 export class ProjectListComponent implements OnInit {
 @Input() projects;
-  constructor() { }
+currentProject:any=null;
+
+
+  constructor(private contentService:ContentService,private cdr:ChangeDetectorRef,private renderer:Renderer) { }
 
   ngOnInit() {
+  	this.contentService.currentProjectGallery.subscribe((project)=>{
+  		this.currentProject = project;
+  		this.cdr.detectChanges();  		
+  	})
   }
 
 }

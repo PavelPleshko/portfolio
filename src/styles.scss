@@ -1,15 +1,13 @@
 @import "~@angular/material/prebuilt-themes/indigo-pink.css";
-$primaryColor:#3f51b5;
-$secondaryColor:#1de9b6;
-
+$primaryColor:#003EFF;
+$secondaryColor:#00FF9B;
+$skype:#12A5F4;
+$github:#000000;
+$whatsapp:#36B320;
 
 *{
 	padding:0;
 	margin:0;
-}
-@font-face{
-	font-family:'wanted';
-	src:url('/assets/fonts/wanted.ttf');
 }
 
 @font-face{
@@ -17,20 +15,17 @@ $secondaryColor:#1de9b6;
 	src:url('/assets/fonts/superstar.ttf');
 }
 
-@font-face{
-	font-family:'flashrogers';
-	src:url('/assets/fonts/flashrogers.ttf');
-}
-
 html{
 	height:100%;
+	min-width:100%;
 }
 body{
-	font-size:16px;
+	font-size:100%;
 	margin:0;
+	min-width:100%;
 	padding:0;
-	font-family: Roboto,Helvetica Neue Light,Helvetica Neue,Helvetica,Arial,Lucida Grande,sans-serif;
 	overflow-x:hidden;
+	font-family: "Montserrat",sans-serif;
 
 
 
@@ -42,8 +37,20 @@ body{
 	color:$primaryColor !important;
 }
 
-.green-color{
-	color: #4caf50 !important;
+.secondary-color{
+	color: $secondaryColor !important;
+}
+
+.skype-color{
+	color:$skype;
+}
+.whatsapp-color{
+	color:$whatsapp;
+}
+
+
+.btn-rounded{
+	border-radius:20px;
 }
 
 .custom-btn-primary{
@@ -54,9 +61,9 @@ body{
 	padding: 10px 30px 10px 30px !important;
 }
 	background:transparent !important;
-	border:2px solid #3f51b5 !important;
+	border:2px solid $primaryColor !important;
 	border-radius:3px;
-	color:#3f51b5 !important;
+	color:$primaryColor !important;
 	font-weight:600;
 	letter-spacing: 2px;
 	font-size: 18px;
@@ -65,7 +72,7 @@ body{
 	&:after{
 		content: '';
 		position: absolute;
-		background:#3f51b5;
+		background:$primaryColor;
 		z-index: -1;
 		height: 110%;
 		width: 0;
@@ -95,19 +102,17 @@ body{
 }
 	
 	background:transparent !important;
-	border:2px solid #1de9b6 !important;
-	border-radius:3px;
-	color:#1de9b6 !important;
+	border:2px solid $secondaryColor !important;
+	color:$secondaryColor !important;
 	font-weight:600;
 	letter-spacing: 2px;
-	font-size: 18px;
 	overflow:hidden;
 	z-index:1;
 	
 	&:after{
 		content: '';
 		position: absolute;
-		background:#1de9b6;
+		background:$secondaryColor;
 		z-index: -1;
 		height: 110%;
 		width: 0;
@@ -115,7 +120,7 @@ body{
 		top: 0;
 		transform: skew(-50deg);
 		transform-origin: top left;
-		transition: width 0.3s cubic-bezier(0.455, 0.03, 0.515, 0.955);
+		transition: width 0.5s cubic-bezier(0.455, 0.03, 0.515, 0.955);
 		}
 	&:hover{
 	color:#fff !important;
@@ -128,7 +133,11 @@ body{
 	}
 
 .secondary-bg{
-	background-color:#1de9b6;
+	background:$secondaryColor !important;
+	color:#fff !important;
+}
+.primary-bg{
+	background:$primaryColor !important;
 	color:#fff !important;
 }
 
@@ -141,16 +150,17 @@ button a{
 	}
 }
 
+
 .modal-lg {
     max-width: 70%;
     }
 @media (max-width: 992px){
 	.modal-lg {
     max-width: 95% !important;
-    overflow:hidden;
+    
     }
     .modal-content{
-    overflow:hidden;
+   
     }
 }
 
@@ -196,3 +206,15 @@ to { opacity: 1; }
 from { opacity: 0; }
 to { opacity: 1; }
 }
+
+   .b-lazy {
+        -webkit-transition: all 500ms ease-in-out;
+        -moz-transition: all 500ms ease-in-out;
+        -o-transition: all 500ms ease-in-out;
+        transition: all 500ms ease-in-out;
+        max-width: 100%;
+        opacity: 0;
+    }
+    .b-lazy.b-loaded{
+        opacity: 1;
+    }

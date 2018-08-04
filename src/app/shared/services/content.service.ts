@@ -4,10 +4,12 @@ import {environment} from '../../../environments/environment';
 import {Observable} from 'rxjs/Observable';
 import {fromPromise} from 'rxjs/observable/fromPromise';
 import {map} from 'rxjs/operators';
-
+import {BehaviorSubject} from 'rxjs/BehaviorSubject';
 
 @Injectable()
 export class ContentService {
+	currentProjectGallery:BehaviorSubject<any> = new BehaviorSubject(null);
+
 client:ContentfulClientApi;
   constructor() {
   this.client = createClient({
@@ -40,7 +42,7 @@ getStatus(){
 }
 
 
-getWebproducts(){
+getServices(){
 	const promise = this.client.getEntries({
 		content_type:'webproducts'
 	});
@@ -68,6 +70,14 @@ getResume(){
 	return fromPromise(promise).pipe(map(this.transformCollection));
 }
 
+openGalleryFor(id){
+this.currentProjectGallery.next(id);
+
+}
+
+closeCurrentGallery(){
+	this.currentProjectGallery.next(null);
+}
 
 
 	transformCollection(entryCollection){

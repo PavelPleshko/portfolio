@@ -10,7 +10,7 @@
 	<h5 class="text-left custom-card-title">{{project.title}}</h5>
 </div>
 	<div class="col-sm-2 col-xs-2 text-right details">
-		<button matTooltip="Details" (click)="openModal()" matTooltipPosition="below" class="" mat-mini-fab color="primary">
+		<button matTooltip="Details" (click)="openModal()" matTooltipPosition="below" class="primary-bg" mat-mini-fab>
 		 <mat-icon>visibility</mat-icon>
 	</button>
 </div>
@@ -27,7 +27,7 @@
 
 <span class="custom-card-actions text-right">
 	<span class="custom-card-actions-inner">
-<button *ngIf="project.demoLink" mat-raised-button color="primary"><a href="{{project.demoLink}}" target="_blank">DEMO</a></button>
+<button *ngIf="project.demoLink" mat-raised-button class="primary-bg"><a href="{{project.demoLink}}" target="_blank">DEMO</a></button>
 <button *ngIf="project.codeLink" mat-raised-button class="secondary-bg"><a href="{{project.codeLink}}" target="_blank">CODE</a></button>
 </span>
 </span>

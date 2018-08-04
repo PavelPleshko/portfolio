@@ -1,13 +1,16 @@
 var express=require('express');
 var nodemailer = require("nodemailer");
 var bodyParser = require('body-parser');
+var compression = require('compression');
 var credentials = require('./environment/environment').mailCredentials;
 var cors = require('cors')
 var assisters = require('./helpers/lib');
 var app=express();
+var PORT = 8080;
   app.use(bodyParser.urlencoded({ extended: true }));
   app.use(bodyParser.json());
 app.use(cors());
+app.use(compression());
 
 var smtpTransport = nodemailer.createTransport({
     service: "yandex",
@@ -18,6 +21,12 @@ var smtpTransport = nodemailer.createTransport({
         pass: credentials.pass
     }
 });
+var oneYear = 1 * 365 * 24 * 60 * 60 *1000;
+app.use('/',express.static(__dirname + '/public',{maxAge:oneYear}));
+app.get('/',(req, res) => {  
+  res.sendFile(__dirname+'/public/index.html');
+});
+
 
 
 app.post('/send',function(req,res){
@@ -43,8 +52,8 @@ smtpTransport.sendMail(mailOpts,function(response,error){
 
 
 
-app.listen(3000,function(){
-console.log("Express Started on Port 3000");
+app.listen(PORT,function(){
+console.log("Express Started on Port "+PORT);
 });
 
 

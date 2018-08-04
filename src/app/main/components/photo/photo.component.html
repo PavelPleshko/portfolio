@@ -1,23 +1,35 @@
 <div class="profile">
-	<div class="main-wrapper">
-		<div class="profile-about d-none d-sm-block" [@slideInOutWithFadeLeft]="animationState">
-			<app-about [data]="leftColumn"></app-about>
+	
+	<div class="main-wrapper align-items-center"  [style.background]="'url(/assets/img/hero.png)'">
+		<div class="container row mx-auto wrapper-inner">
+		<div class="col-lg-4 col-xl-3 col-md-6 col-sm-12 col-xs-12">
+			<div class="profile-avatar m-auto" [style.background-image]="image" [@slideInOutWithFadeLeft]="animationState">
+
+			</div>
 		</div>
-		<div class="profile-resume d-none d-sm-block" [@slideInOutWithFadeRight]="animationState">
-			<app-download-resume [data]="rightColumn"></app-download-resume>
-		</div>
-		<div class="d-block d-sm-none text-center buttons-mobile">
-			<a mat-raised-button [routerLink]="['/projects']" class="custom-btn-primary">
-				MY PROJECTS
-			</a>
-			<a mat-raised-button href="{{resumeLink}}" class="custom-btn-secondary">
-				RESUME
-			</a>
+		<div class="profile-intro col-lg-8 col-xl-9 col-md-6 col-sm-12 col-xs-12  align-middle" [@slideInOutWithFadeRight]="animationState">
+			<div class="profile-about d-md-none d-none d-lg-block">
+				<app-about [data]="leftColumn"></app-about>
+			</div>
+			<div class="profile-short-desc d-none d-md-block d-xl-none d-lg-none">
+				<ul class="">
+					<li class="">Web development</li>
+					<li class="">Web design</li>
+					<li class=""><a mat-raised-button [routerLink]="['/projects']" color="primary" class="">
+					View projects
+				</a></li>
+
+				</ul>
+			</div>
+			<div class="d-block d-sm-block d-md-none text-center buttons-mobile">
+				<a [routerLink]="['/projects']" color="primary" class="custom-btn-primary">
+					MY PROJECTS
+				</a>
+				<a rel="noopener" attr.aria-label="Resume" href="{{resumeLink}}" class="custom-btn-secondary">
+					RESUME
+				</a>
+			</div>
 		</div>
 	</div>
-	<div class="profile-img" [style.background-image]="image">
-		
-	</div>
-	<div class="profile-meta">
-	</div>
+</div>
 </div>

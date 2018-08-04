@@ -9,17 +9,18 @@ import { SkillListComponent } from './components/skill-list/skill-list.component
 import { SkillCardComponent } from './components/skill-card/skill-card.component';
 import { FooterComponent } from './components/footer/footer.component';
 import { StatusComponent } from './components/status/status.component';
+import {ServicesComponent} from './components/services/services.component';
 
 const routes:Routes = [
 {path:'',component:MainComponent}
 ];
 
 export const MODULES=[
-RouterModule.forChild(routes),SharedModule
+RouterModule.forChild(routes),SharedModule.forRoot()
 ];
 
 export const COMPONENTS = [
-NavbarComponent,MainComponent,FooterComponent
+NavbarComponent,MainComponent,FooterComponent,ServicesComponent
 ];
 
 @NgModule({

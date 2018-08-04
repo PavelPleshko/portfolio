@@ -1,0 +1,24 @@
+.pcontainer{
+	padding: 5% 5%;
+	margin:0 5%;
+}
+
+
+@media(max-width: 768px){
+
+
+	.pcontainer{
+	padding:2em 0;
+	margin-top: 3rem;
+	}
+}
+
+@media only screen 
+  and (max-device-width: 480px){
+ .pcontainer{
+	padding:1.5em 0;
+	margin: 1em;
+	}
+}
+ 
+

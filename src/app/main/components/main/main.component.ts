@@ -13,16 +13,19 @@ export class MainComponent implements OnInit,OnDestroy{
 skills;
 abouts;
 statuses;
+services;
 resumeLink:string;
 subscriptions = [];
 animationState:string;
-  constructor(public contentService:ContentService,public dataLoadService:DataLoadService) { }
+
+  constructor(private contentService:ContentService,private dataLoadService:DataLoadService) { }
 
   ngOnInit() {
   this.animationState = 'inactive';
 this.dataLoadService.startLoadingContent();
   	let mainSub = forkJoin(this.contentService.getSkillsets(),
-  	this.contentService.getAboutInfo(),this.contentService.getStatus(),this.contentService.getResume())
+  	this.contentService.getAboutInfo(),this.contentService.getStatus(),this.contentService.getResume(),
+    this.contentService.getServices())
   	.subscribe(data=>{
   			
   		
@@ -30,6 +33,7 @@ this.dataLoadService.startLoadingContent();
   		this.abouts = data[1];
   		this.statuses = data[2];
       this.resumeLink = data[3][0].resume.fields.file.url;
+      this.services = data[4];
   		this.dataLoadService.stopLoadingContent();
 		this.animationState = 'active';
   	});

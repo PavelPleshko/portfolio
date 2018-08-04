@@ -1,0 +1,19 @@
+<div class="gallery-outer">
+	<div class="gallery-inner">
+	<div class="veil"></div>
+<div class="gallery closed" #gallery>
+	<div class="gallery-images" [@slideInOutAnimation]>
+<div class="custom-modal-img-mobile-wrapper" *ngFor="let img of currentProject.extraImages;let i=index;" id="image-{{i}}" [ngClass]="{'coming-image':i==currentActiveImaged}">
+		<img  class="custom-modal-img" [src]="img.fields.file.url">
+	
+</div>
+</div>
+
+
+</div>
+<div class="dots">
+	<div *ngFor="let dot of dotsArray" [class.active]="dot" class="dot">
+	</div>
+</div>
+</div>
+</div>

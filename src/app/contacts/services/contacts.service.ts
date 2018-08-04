@@ -11,6 +11,6 @@ export class ContactsService {
 
  sendEmail(data):Observable<any>{
 
- 	return this.http.post('http://localhost:3000/send',data).pipe(catchError(err=>of(err)));
+ 	return this.http.post('send',data).pipe(catchError(err=>of(err)));
  }
 }

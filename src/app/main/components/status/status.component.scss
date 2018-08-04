@@ -10,22 +10,24 @@
 		transform: translateX(-50%) translateY(-50%);
 		text-align: center;
 		&-header{
-			font-size: 2.5rem;
+			font-size: 2rem;
 			font-weight: 900;
 			color: #a09797;
+			white-space:nowrap;
 		}
 		&-info{
 			color: #4caf50;
-			font-size: 2rem;
+			font-size: 1.5em;
 			font-family: superstar;
 			letter-spacing:2px;
 			i{
-			font-size: 5rem;
+			font-size: 3em;
 			}
 		}
 	}
 	&-img-wrapper{
 	overflow:hidden;
+	padding:0 20%;
 	}
 
 	&-img{
@@ -36,24 +38,26 @@
 	}
 
 	.message{
-		margin-top:3.5rem;
+	right: 9%;
+    position: relative;
 	&-body{
 			padding: 50px;
-			background:rgba(0,0,0,.05);
-			margin-right: 60px;
+			background:#dedede;
+			margin:0 5%;
 			border-radius:15px;
+			position:relative;
 			&:before{
 			content:'';
 			position:absolute;
 			border-top:28px solid transparent;
 			border-bottom:28px solid transparent;
-			border-right:48px solid rgba(0,0,0,.05);
-			left: -33px;
-    		top: 30px;
+			border-right:48px solid #dedede;
+			left: -28px;
+    		top: 25%;
 
 			}
 			&-text{
-				font-family:'flashrogers';
+				
 				color: #7b6b6b;
 				font-size: 120%;
 			}
@@ -62,20 +66,37 @@
 	}
 }
 
+
+@media(max-width: 1024px){
+
+.status{
+	&-img-wrapper{
+	padding:0 5%;
+	}
+
+	.message{
+	right:0%;
+	}
+}
+
+
+
+}
+
 @media(max-width: 768px){
 	
 
 .status{
-
+	margin:0;
 	&-img{
-	    margin-left:2.5em;
-	    width:90%;
+	   
+	    width:100%;
 	}
 
 	&-body{
-	left:55%;
+	left:50%;
 	top:50%;
-	width:90%;
+	width:100%;
 
 	&-info{
 	font-size: 1.2rem;
@@ -85,18 +106,13 @@
 	}
 	}
 	.message{
+	right:0%;
 	margin-top:0;
 
 	&-body{
 	padding:30px;
 	margin-right:0;
-	&:before{
-
-    border-top: 20px solid transparent;
-    border-bottom: 20px solid transparent;
-    border-right: 20px solid rgba(0, 0, 0, 0.05);
-    left: -5px;
-	}
+	
 	&-text{
 	font-size:100%;
 
@@ -108,22 +124,18 @@
 }
 
 @media only screen 
-  and (max-device-width: 480px){
+  and (max-device-width: 768px){
   	.status{
-  	transform: translateY(-7em);
+  	transform: translateY(-4em);
   	text-align:center;
 
-  	&-img-wrapper{
-	right: 7%;
-	}
 
 	&-img{
 	width:100%;
-	transform:rotate(90deg);
 	}
 
 	&-body{
-	left:58%;
+	left:50%;
 
 	&-info{
 	font-size: 1rem;
@@ -131,19 +143,19 @@
 	
 	}
 	.message{
-	transform: translateY(-4em);
+	transform: translateY(1em);
 	margin-top:0;
 
 	&-body{
 	margin:1em;
 	&:before{
-	top:-1.7%;
+	top:-20px;
 	left:50%;
 	transform:translateX(-50%);
     border:none;
     border-right: 20px solid transparent;
     border-left: 20px solid transparent;
-    border-bottom: 20px solid rgba(0, 0, 0, 0.05);
+    border-bottom: 20px solid #dedede;
     
 	}
 	}

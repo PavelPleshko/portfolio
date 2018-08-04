@@ -1,4 +1,4 @@
-import { NgModule } from '@angular/core';
+import { NgModule,ModuleWithProviders } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import {HttpClientModule} from '@angular/common/http';
 import {ReactiveFormsModule} from '@angular/forms';
@@ -13,13 +13,17 @@ import {MatProgressBarModule} from '@angular/material/progress-bar';
 import {MatInputModule} from '@angular/material/input';
 import {MatListModule} from '@angular/material/list';
 import { PreloaderComponent } from '../helpers/preloader/preloader.component';
+import { BannerComponent } from './components/banner/banner.component';
+import { LogoComponent } from './components/core/logo/logo.component';
+
+import {ScrollService} from './services/scroll.service';
 
 export const MODULES=[
 CommonModule,HttpClientModule,ReactiveFormsModule
 ];
 
 export const COMPONENTS = [
-PreloaderComponent
+PreloaderComponent,BannerComponent,LogoComponent
 ];
 
 export const MATERIAL_MODULES=[
@@ -31,8 +35,16 @@ MatCardModule,MatInputModule,MatListModule
 @NgModule({
   imports: [
     ...MODULES,...MATERIAL_MODULES
-  ],
-  declarations: [PreloaderComponent],
-  exports:[...MATERIAL_MODULES,...MODULES,...COMPONENTS]
+    ],
+  declarations: [...COMPONENTS, LogoComponent],
+  exports:[...MATERIAL_MODULES,...MODULES,...COMPONENTS],
 })
-export class SharedModule { }
+
+export class SharedModule { 
+	 static forRoot(): ModuleWithProviders {
+    return {
+      ngModule: SharedModule,
+      providers: [ScrollService]
+    }
+  }
+}

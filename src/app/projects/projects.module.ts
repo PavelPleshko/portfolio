@@ -7,6 +7,7 @@ import { ProjectListComponent } from './components/project-list/project-list.com
 import { ProjectComponent } from './components/project/project.component';
 import { ProjectSingleModalComponent } from './components/project-single-modal/project-single-modal.component';
 import {NgbModule} from '@ng-bootstrap/ng-bootstrap';
+import { ProjectGalleryComponent } from './components/project-gallery/project-gallery.component';
 
 export const routes:Routes = [
 {path:'',component:ProjectsComponent}
@@ -20,6 +21,6 @@ SharedModule,RouterModule.forChild(routes),NgbModule
     ...MODULES
   ],
   entryComponents:[ProjectSingleModalComponent],
-  declarations: [ProjectsComponent, ProjectSingleComponent, ProjectListComponent, ProjectComponent, ProjectSingleModalComponent]
+  declarations: [ProjectsComponent, ProjectSingleComponent, ProjectListComponent, ProjectComponent, ProjectSingleModalComponent, ProjectGalleryComponent]
 })
 export class ProjectsModule { }

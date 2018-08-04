@@ -1,12 +1,35 @@
 	<app-preloader></app-preloader>
-
-<div class="contacts container">
+<app-banner [imageUrl]="'/assets/img/banner-contacts.jpg'"></app-banner>
+<div class="contact container">
 	<div class="row">
 		<div class="col-md-6 col-sm-12 col-xs-12 mb-5">
 <app-contact-form></app-contact-form>
 </div>
 <div class="col-md-6 col-sm-12 col-xs-12">
-	<app-product-types [webproducts]="webproducts"></app-product-types>
+	<!-- <app-product-types [webproducts]="webproducts"></app-product-types> -->
+	<div>
+		<h3 class="text-center">You can find me on</h3>
+		<div class="contact-details">
+			<ul class="contact-list">
+				<li class="contact-list-item">
+					<i class="fab fa-skype skype-color"></i>
+					<span class="contact-list-item-text">pavelpleshko92@mail.ru</span>
+				</li>	
+				<li class="contact-list-item">
+					<i class="fab fa-whatsapp whatsapp-color"></i>
+					<span class="contact-list-item-text">+8618618249507</span>
+				</li>
+				<li class="contact-list-item">
+					<i class="fab fa-github"></i>
+					<span class="contact-list-item-text"><a href="https://github.com/PavelPleshko">Github account</a></span>
+				</li>
+				<li class="contact-list-item">
+					<i class="far fa-envelope"></i>
+					<span class="contact-list-item-text">pavelpleshko92@mail.ru</span>
+				</li>
+			</ul>
+		</div>
+	</div>
 	</div>
 
 </div>

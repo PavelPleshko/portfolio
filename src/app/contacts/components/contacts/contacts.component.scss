@@ -1,5 +1,29 @@
-.contacts{
+.contact{
 	padding-top:150px;
+
+	&-details{
+		padding:2rem 5rem;
+	}
+
+	&-list{
+		list-style:none;
+
+		&-item{
+			display:flex;
+			align-items:center;
+			padding:1rem;
+			color:rgba(0,0,0,.7);
+
+			i{
+				font-size:2rem;
+			}
+
+			&-text{
+				font-weight:700;
+				margin-left:1rem;
+			}
+		}
+	}
 }
 
 

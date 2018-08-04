@@ -1,16 +1,16 @@
-.material-footer{
-	
-
+/deep/ .material-footer{
+	background-color:#212121;
+	color:#999;
 	&-copyright{
 	position:relative;
 	left:5%;
 	font-size:60%;
-	font-family: superstar;
+	font-weight:700;
 	}
 
 	&-powered{
 	position:absolute;
-	right:3%;
+	right:5%;
 	font-size:60%;
 	font-family:cursive;
 

@@ -1,6 +1,7 @@
 <div class="status row" *ngIf="currentStatus">
 
-<div class="status-img-wrapper col-lg-7 col-md-7 col-sm-7 col-xs-11">
+<div class="col-lg-7 col-md-7 col-sm-12 col-xs-12">
+	<div class="status-img-wrapper">
 	<div class="status-body">
 		<h3 class="status-body-header">CURRENT STATUS:</h3>
 		<div class="status-body-info" [ngStyle]="{'color':currentStatus.color}">
@@ -8,11 +9,12 @@
 			<i class="fa fa-{{currentStatus.iconName}}"></i>
 		</div>
 	</div>
-<img class="status-img d-none d-lg-block d-md-block img-responsive" src="/assets/img/status.png">
-<img class="status-img d-none d-lg-none d-md-none d-sm-block img-responsive" src="/assets/img/status_pad.png">
-<img class="status-img d-block d-lg-none d-md-none d-sm-none img-responsive" src="/assets/img/status_mob.png">
+<img alt="status laptop" src="data:image/gif;base64,R0lGODlhAQABAIAAAP///wAAACH5BAEAAAAALAAAAAABAAEAAAICRAEAOw" class="status-img d-none d-lg-block d-md-none img-fluid b-lazy" data-blazy="/assets/img/status.png">
+<img alt="status tablet" src="data:image/gif;base64,R0lGODlhAQABAIAAAP///wAAACH5BAEAAAAALAAAAAABAAEAAAICRAEAOw" class="status-img d-none d-lg-none d-md-block d-sm-block img-fluid b-lazy" data-blazy="/assets/img/status_pad.png">
+<img alt="status mobile" src="data:image/gif;base64,R0lGODlhAQABAIAAAP///wAAACH5BAEAAAAALAAAAAABAAEAAAICRAEAOw" class="status-img d-block d-lg-none d-md-none d-sm-none img-fluid b-lazy" data-blazy="/assets/img/status_mob.png">
 </div>
-<div class="message col-lg-5 col-md-5 col-sm-5 col-xs-12">
+</div>
+<div class="message col-lg-5 col-md-5 col-sm-12 col-xs-12">
 	<div class="message-body">
 		<p class="message-body-text">
 			{{currentStatus.messages[0]}}

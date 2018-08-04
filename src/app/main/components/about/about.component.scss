@@ -3,6 +3,7 @@
 	height:100%;
 	display:flex;
 	align-items:flex-end;
+	padding-right:4rem;
 }
 .about-custom-card{
 
@@ -11,11 +12,11 @@
 	&-body{
 
 	p{
-		font-family:'flashrogers';
+		font-family: 'Quicksand', sans-serif;
 		margin-left:35px;
 		color:#fff;
 		opacity: .9;
-		line-height: 30px;
+		line-height: 38px;
 	}
 	}
 	&-header{
