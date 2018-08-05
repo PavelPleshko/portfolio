@@ -1,35 +1,38 @@
 
-<div class="card">
-<div class="custom-img-wrapper">
-<div class="custom-card-img-top" [style.background-image]="image"></div>
-</div>
+<div class="d-block project container-fluid">
+	<div class="{{isOdd ? 'float-left' : 'float-right'}}">
+		<div class="custom-img-wrapper">
+		<div class="custom-card-img-top" [style.background-image]="image"></div>
+		</div>
+	</div>
 
-<div class="card-body">
-	<div class="row">
-	<div class="col-sm-10 col-xs-10">
+<div class="project-body d-inline-block">
+	<div class="{{isOdd ? 'pl-5' : 'pr-5'}}">
+	<div class="d-flex flex-column">
 	<h5 class="text-left custom-card-title">{{project.title}}</h5>
-</div>
-	<div class="col-sm-2 col-xs-2 text-right details">
+	<div class="float-right details">
 		<button matTooltip="Details" (click)="openModal()" matTooltipPosition="below" class="primary-bg" mat-mini-fab>
-		 <mat-icon>visibility</mat-icon>
-	</button>
-</div>
+			 <mat-icon>visibility</mat-icon>
+		</button>
+	</div>
+	<div class="custom-card-technologies mb-1">
+        <img *ngFor="let technology of project.technologies" matTooltip="{{technology}}" matTooltipPosition="below" class="custom-card-technologies-single" src="/assets/img/stack/{{technology}}.png">
+    </div>
+    <div class="custom-card-text text-muted">{{project.shortDescription}}</div>
+    <span class="custom-card-actions text-right">
+	<span class="custom-card-actions-inner">
+		<button *ngIf="project.demoLink" mat-raised-button class="primary-bg"><a href="{{project.demoLink}}" target="_blank">DEMO</a></button>
+		<button *ngIf="project.codeLink" mat-raised-button class="secondary-bg"><a href="{{project.codeLink}}" target="_blank">CODE</a></button>
+	</span>
+	</span>
 </div>
 	
-	<div class="custom-card-technologies mb-1">
-
-<img *ngFor="let technology of project.technologies" matTooltip="{{technology}}" matTooltipPosition="below" class="custom-card-technologies-single" src="/assets/img/stack/{{technology}}.png">
-
-	</div>
-<div class="custom-card-text text-muted">{{project.shortDescription}}</div>
 
 </div>
 
-<span class="custom-card-actions text-right">
-	<span class="custom-card-actions-inner">
-<button *ngIf="project.demoLink" mat-raised-button class="primary-bg"><a href="{{project.demoLink}}" target="_blank">DEMO</a></button>
-<button *ngIf="project.codeLink" mat-raised-button class="secondary-bg"><a href="{{project.codeLink}}" target="_blank">CODE</a></button>
-</span>
-</span>
 </div>
+<hr class="clearfix">
+
+</div>
+
 

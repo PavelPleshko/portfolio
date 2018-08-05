@@ -35,7 +35,7 @@ this.dataLoadService.startLoadingContent();
       this.resumeLink = data[3][0].resume.fields.file.url;
       this.services = data[4];
   		this.dataLoadService.stopLoadingContent();
-		this.animationState = 'active';
+		  this.animationState = 'active';
   	});
   	this.subscriptions.push(mainSub);
   }

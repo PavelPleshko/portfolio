@@ -1,15 +1,13 @@
 .product-types{
 	
-
+	padding:2rem 4rem;
 	background-color:#dedede;
 	&-header{
 	text-align:center;
 	span{
 	font-weight:700;
 	letter-spacing:1px;
-	font-size:90%;
-    color: #a59c9c;
-    border-radius: 23px;
+	font-size:1.8rem;
     padding: 4px 10px;
 	}
 	}
@@ -19,34 +17,32 @@
 	text-align:center;
 	
 	padding:10px;
-	margin:0px 20px 45px 20px;
-	padding-top:8%;
-	box-shadow: 0px 0px 4px 1px rgba(0,0,0,.2);
 	.card-title{
-	font-size:80%;
-	font-weight:700;
+		margin:1rem 0;
+		font-size:1.5rem;
+		font-weight:700;
 	}
 	.card-body{
 	padding:0.25rem !important;
 	}
 
 	.custom-card-text{
-	font-size:80%;
+	line-height:1.2;
+	padding:0 2rem;
 	}
 	.icon-wrapper{
-	position: absolute;
-	border-radius:3px;
+	
+	border-radius:50%;
     background: #5262bc;
     display: inline-flex;
     color: #fff;
   
     text-align: center;
     vertical-align: middle;
-    left:0px;
-    top: 0px;
-    width: 55px;
+
+    width: 7rem;
     text-align: center;
-    height: 60px;
+    height: 7rem;
    &-inner{
    height:100%;
    width:100%;
@@ -55,7 +51,7 @@
    }
 	}
     i{
-    	font-size:215% !important;
+    	font-size:4rem !important;
     	    position: relative;
     top: 50%;
     transform: translateY(-50%);

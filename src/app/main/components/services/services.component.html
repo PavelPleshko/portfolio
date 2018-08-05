@@ -1,21 +1,24 @@
 <div class="product-types">
-<h4 class="product-types-header"><span>Services</span></h4>
+<div class="container">
+<h4 class="product-types-header"><span>I can work with...</span></h4>
+
 	<div class="product-types-list row">
 
-		<div class="card product-types-list-item col-sm-12" *ngFor="let product of webproducts">
-			<h5 class="card-title" [style.color]="product.iconBackgroundColor">{{product.title}}</h5>
+		<div class="product-types-list-item col-sm-6 col-xs-12" *ngFor="let product of services">
+			
 			<div class="card-body">
 			<div class="icon-wrapper" [style.background-color]="product.iconBackgroundColor">
 				<div class="icon-wrapper-inner">
-					<i class="{{product.iconSet == 'font_awesome' ? product.iconName : 'material-icons'}}">{{product.iconSet == 'font_awesome' ? '' : product.iconName}}</i>
+					<img [src]="product.iconImage.fields.file.url" height="100%" width="100%">
 				</div>
 			</div>
+			<h5 class="card-title">{{product.title}}</h5>
 			<div class="custom-card-text text-muted">{{product.shortDescription}}</div>
 		</div>
 		</div>
 
 		
 
-	
+	</div>
 	</div>
 </div>
