@@ -1,9 +1,14 @@
 .project{
-	margin-bottom:2em;
-	.details{
-	right:3%;
+	
 
-}
+	&-more{
+	 color: rgba(#003EFF,.4);
+	 transition:.2s;
+	&:hover{
+		 color: rgba(#003EFF,.7);
+		 cursor:pointer;
+		    }
+	}
 
 	.custom-card-title{
 	font-weight:700;
@@ -11,7 +16,8 @@
 	}
 
 	.custom-img-wrapper{
-	width:25em;
+		width:100%;
+	max-width:30rem;
 	height:15em;
 	box-shadow:0px 0px 2px 1px rgba(0,0,0,.2);
 	overflow:hidden;
@@ -30,26 +36,16 @@
 	}
 	}
 	
-	.custom-card-technologies-single{
-	max-width:60px;
-	height:20px;
-	margin:0 0.2em;
-	}
+	
 	
 	.custom-card-text{
 	font-size:.8em;
 	}
 
 	.custom-card-actions{
-	padding:0.5em;
+	padding:0.5em 0;
 	}
 }
 
-@media(max-width: 768px){
-
-.details{
-	right:3%;
-}
 
 
-}

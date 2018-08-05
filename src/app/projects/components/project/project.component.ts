@@ -26,9 +26,9 @@ isOdd:boolean = false;
   }
 
 checkIsOdd(index:number){
-  console.log(index, index % 2);
   return Number(index) % 2 ===0;
 }
+
 openModal(){
 	const ref = this.modalService.open(ProjectSingleModalComponent,{size:'lg',windowClass:'app-modal-window'});
 	ref.componentInstance.project = this.project;

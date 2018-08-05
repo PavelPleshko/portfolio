@@ -23,12 +23,16 @@
 		<div class="col-sm-12 col-xs-12 custom-modal-body">
 			<div class="technologies mb-3">
 
-<img *ngFor="let technology of project.technologies" matTooltip="{{technology}}" matTooltipPosition="below" class="technologies-single" src="/assets/img/stack/{{technology}}.png">
+<span *ngFor="let technology of project.technologies" class="badge badge-pill badge-secondary mr-1 text-capitalize">#{{technology}}</span>
 
 	</div>
 	<div class="scroll-wrapper">
 		<h5 class="text-left custom-modal-title">{{project.title}}</h5>
-<div class="custom-modal-description text-muted" [innerHTML]="project.longDescription"></div>
+<div class="custom-modal-description text-muted col-sm-10 col-md-8 px-sm-0">
+	<p [innerHTML]="project.longDescription">
+		
+	</p>
+</div>
 </div>
 </div>
 </div>
@@ -41,8 +45,8 @@
 <div class="custom-modal-footer">
 	<div class="custom-links text-right">
 	<div class="custom-links-inner">
-<button *ngIf="project.demoLink" mat-raised-button color="primary"><a href="{{project.demoLink}}" target="_blank">DEMO</a></button>
-<button *ngIf="project.codeLink" mat-raised-button class="secondary-bg"><a href="{{project.codeLink}}" target="_blank">CODE</a></button>
+<button *ngIf="project.demoLink" class="btn btn-outline-primary text-uppercase"><a href="{{project.demoLink}}" target="_blank">See Demo</a></button>
+<button *ngIf="project.codeLink" class="btn btn-outline-secondary text-uppercase"><a href="{{project.codeLink}}" target="_blank">Code</a></button>
 </div>
 </div>
 </div>

@@ -23,12 +23,14 @@ animationState:string;
   ngOnInit() {
   this.animationState = 'inactive';
 this.dataLoadService.startLoadingContent();
-  	let mainSub = forkJoin(this.contentService.getSkillsets(),
-  	this.contentService.getAboutInfo(),this.contentService.getStatus(),this.contentService.getResume(),
-    this.contentService.getServices())
-  	.subscribe(data=>{
-  			
-  		
+  	let mainSub = forkJoin(
+      this.contentService.getSkillsets(),
+    	this.contentService.getAboutInfo(),
+      this.contentService.getStatus(),
+      this.contentService.getResume(),
+      this.contentService.getServices()
+     )
+  	.subscribe(data=>{	
   		this.skills = data[0];
   		this.abouts = data[1];
   		this.statuses = data[2];

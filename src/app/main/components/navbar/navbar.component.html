@@ -1,16 +1,24 @@
 
   <nav [@toggle] [class.scrolledTop]="scrollReachedTop$ | async" class="material-navbar navbar navbar-expand-sm navbar-light d-flex justify-content-between">
       <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#primaryNavbar" aria-controls="primaryNavbar" aria-expanded="false" aria-label="Toggle navigation">
-    <i class="material-icons">menu</i>
-  </button>
+         <i class="material-icons">menu</i>
+     </button>
+     <div class="navbar-brand mx-4 order-first">
+      <a [routerLink]="['home']">
+        <app-logo></app-logo>
+      </a>
+    </div>
    <div class="collapse navbar-collapse" #mobile_menu id="primaryNavbar">
-    <ul class="navbar-nav align-items-center" >
-<li class="navbar-brand mx-4">
-  <a [routerLink]="['home']">
-    <app-logo></app-logo>
-  </a>
-</li>
+    <ul class="navbar-nav align-items-center container-fluid" >
 
+
+  <li class="nav-item d-block d-sm-none">
+    <a [routerLink]="['home']" routerLinkActive="active">
+      <button mat-button class="text-uppercase">
+        <span class="cdk-visually-hidden"></span>Home
+      </button>
+    </a>
+  </li>  
   <li class="nav-item">
     <a [routerLink]="['projects']" routerLinkActive="active">
       <button mat-button class="text-uppercase">
@@ -26,16 +34,23 @@
      </button>
    </a>
  </li>
-</ul>
-<button class="d-none d-md-inline-block btn btn-outline-primary ml-3"><a href="{{resumeUrl}}" rel="noopener" target="_blank">Resume</a></button>
-</div>
-  <div class="social-list">
-  	<div *ngFor="let social of socials" matTooltip="{{social.title}}" [matTooltipPosition]="'below'">
-  		<span class="social-list-item">
-  			<a href="{{social.link}}" rel="noopener" [attr.aria-label]="social.title" target="_blank"><i class="{{social.iconName}}"></i></a>
-  		</span>
-  	</div>
+ <li class="nav-item d-none d-sm-inline-block">
+   <button class="btn btn-outline-primary ml-3"><a href="{{resumeUrl}}" rel="noopener" target="_blank">Resume</a></button>
+ </li>
+  <li class="nav-item ml-sm-auto">
+   <div class="social-list">
+    <div *ngFor="let social of socials" matTooltip="{{social.title}}" [matTooltipPosition]="'below'">
+      <span class="social-list-item">
+        <a href="{{social.link}}" rel="noopener" [attr.aria-label]="social.title" target="_blank"><i class="{{social.iconName}}"></i></a>
+      </span>
+    </div>
   
   </div>
+ </li>
+</ul>
+
+</div>
+  
+
 </nav>
 
