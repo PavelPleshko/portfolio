@@ -21,19 +21,18 @@ enum VisibilityState {
   selector: 'app-navbar',
   templateUrl: './navbar.component.html',
   styleUrls: ['./navbar.component.scss'],
-  changeDetection:ChangeDetectionStrategy.OnPush,
+ //changeDetection:ChangeDetectionStrategy.OnPush,
   animations:[navbarAnimation]
 })
 export class NavbarComponent implements OnInit,AfterViewInit,OnDestroy {
 @Input() socials;
 @Input() resumeUrl;
 @ViewChild('mobile_menu') mobileMenu:ElementRef;
-@HostBinding('@toggle')
 get toggle():VisibilityState{
     return this.isVisible ? VisibilityState.Visible : VisibilityState.Hidden
 }
 
-isVisible:boolean;
+isVisible:boolean=true;
 menuListener;
 scrollReachedTop$:Observable<any>;
 showNav$:Observable<boolean>;
@@ -49,6 +48,7 @@ subscriptions:Array<any>=[];
      this.scrollReachedTop$ = this.scrollService.scrollReachedTop$.pipe(
        combineLatest(dataLoaded),
      map(([v1,v2])=>{
+       console.log(v1,v2);
       return (v1 && v2)
      })  );
      this.scrollService.scrollUp$.subscribe(()=>this.isVisible=true);

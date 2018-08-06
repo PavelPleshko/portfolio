@@ -17,6 +17,7 @@ import { BannerComponent } from './components/banner/banner.component';
 import { LogoComponent } from './components/core/logo/logo.component';
 
 import {ScrollService} from './services/scroll.service';
+import { ProgressiveImageLoaderDirective } from './directives/progressive-image-loader.directive';
 
 export const MODULES=[
 CommonModule,HttpClientModule,ReactiveFormsModule
@@ -36,7 +37,7 @@ MatCardModule,MatInputModule,MatListModule
   imports: [
     ...MODULES,...MATERIAL_MODULES
     ],
-  declarations: [...COMPONENTS, LogoComponent],
+  declarations: [...COMPONENTS, LogoComponent, ProgressiveImageLoaderDirective],
   exports:[...MATERIAL_MODULES,...MODULES,...COMPONENTS],
 })
 

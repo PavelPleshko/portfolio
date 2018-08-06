@@ -14,7 +14,7 @@ export class BannerComponent implements AfterViewInit,OnInit {
   constructor(private cdr:ChangeDetectorRef,private sanitizer:DomSanitizer) { }
 
   ngOnInit(){
-  		this.imageUrl = this.sanitizer.bypassSecurityTrustStyle(`url(${this.imageUrl}`);
+  		this.imageUrl = this.sanitizer.bypassSecurityTrustStyle(`url(${this.imageUrl})`);
   }
  
 

@@ -1,5 +1,5 @@
 
-  <nav [@toggle] [class.scrolledTop]="scrollReachedTop$ | async" class="material-navbar navbar navbar-expand-sm navbar-light d-flex justify-content-between">
+  <nav [@toggle]="toggle" [class.scrolledTop]="scrollReachedTop$ | async" class="material-navbar navbar navbar-expand-sm navbar-light d-flex justify-content-between">
       <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#primaryNavbar" aria-controls="primaryNavbar" aria-expanded="false" aria-label="Toggle navigation">
          <i class="material-icons">menu</i>
      </button>
