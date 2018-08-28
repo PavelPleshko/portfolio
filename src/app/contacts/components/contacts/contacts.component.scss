@@ -1,3 +1,5 @@
+@import 'mixins';
+
 .contact{
 	padding-top:4em;
 	padding-bottom:4em;
@@ -27,11 +29,12 @@
 }
 
 
-@media only screen 
-  and (max-device-width: 480px){
-.contacts{
+@include mq-mobile-only{
+	.contact{
 padding-top:85px;
 }
 
+}
 
-  }
+
+  

@@ -1,9 +1,9 @@
 <div class="profile">
 	
 	<div class="main-wrapper align-items-center"  [style.background]="'url(/assets/img/hero.png)'">
-		<div class="container row mx-auto wrapper-inner">
+		<div class="container row no-gutters wrapper-inner">
 		<div class="col-lg-4 col-xl-3 col-md-6 col-sm-12 col-xs-12">
-			<div class="profile-avatar m-auto" [style.background-image]="image" [@slideInOutWithFadeLeft]="animationState">
+			<div class="profile-avatar" [style.background-image]="image" [@slideInOutWithFadeLeft]="animationState">
 
 			</div>
 		</div>
@@ -22,10 +22,10 @@
 				</ul>
 			</div>
 			<div class="d-block d-sm-block d-md-none text-center buttons-mobile">
-				<a [routerLink]="['/projects']" color="primary" class="custom-btn-primary">
+				<a [routerLink]="['/projects']" class="btn btn-primary">
 					MY PROJECTS
 				</a>
-				<a rel="noopener" attr.aria-label="Resume" href="{{resumeLink}}" class="custom-btn-secondary">
+				<a rel="noopener" attr.aria-label="Resume" href="{{resumeLink}}" class="btn btn-success">
 					RESUME
 				</a>
 			</div>

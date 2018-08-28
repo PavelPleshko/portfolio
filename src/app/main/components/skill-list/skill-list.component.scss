@@ -1,35 +1,27 @@
-.skill-list{
-	
+@import 'mixins';
+
+.skill-list{	
 	&-header{
-		padding-bottom:4rem;
-	&-text{
-		border-bottom: 2px solid;
-		padding: 6px 0px;
-		font-size: 140%;
-		font-weight:700;
-		text-transform:uppercase;
-		white-space:nowrap;
+		&-text{
+			border-bottom: 2px solid;
+			padding: 6px 0px;
+			font-size: 140%;
+			font-weight:700;
+			text-transform:uppercase;
+			white-space:nowrap;
+		}
 	}
-	}
-
-}
-
-
-@media(max-width: 1024px){
-.skill-list{
 	.card-group{
-	margin-bottom:5em;
+			margin-top:4em;
+		}
+}
+
+@include mq-small-mobile-devices{
+	.skill-list{
+		&-header{
+		}
+		.card-group{
+			margin-top:5em;
+		}
 	}
 }
-}
-
-@media(max-width: 768px){
-.skill-list{
-	.card-group{
-	margin-bottom:5em;
-	}
-
-
-}
-}
-

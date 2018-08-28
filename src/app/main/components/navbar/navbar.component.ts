@@ -48,7 +48,6 @@ subscriptions:Array<any>=[];
      this.scrollReachedTop$ = this.scrollService.scrollReachedTop$.pipe(
        combineLatest(dataLoaded),
      map(([v1,v2])=>{
-       console.log(v1,v2);
       return (v1 && v2)
      })  );
      this.scrollService.scrollUp$.subscribe(()=>this.isVisible=true);

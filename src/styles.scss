@@ -1,9 +1,7 @@
 @import "~@angular/material/prebuilt-themes/indigo-pink.css";
-$primaryColor:#003EFF;
-$secondaryColor:#00FF9B;
-$skype:#12A5F4;
-$github:#000000;
-$whatsapp:#36B320;
+@import 'mixins';
+@import 'variables';
+
 
 *{
 	padding:0;
@@ -11,20 +9,17 @@ $whatsapp:#36B320;
 }
 
 
-html{
-	height:100%;
-	min-width:100%;
+
+body,html{
+	  overflow-x: hidden;
+	  font-family: "Montserrat",sans-serif;
+	  position:relative;
 }
-body{
-	font-size:100%;
-	margin:0;
-	min-width:100%;
-	padding:0;
-	overflow-x:hidden;
-	font-family: "Montserrat",sans-serif;
 
-
-
+@include mq-mobile-only{
+	body,html{
+		font-size:12px;
+	}
 }
 	
 
@@ -63,6 +58,7 @@ body{
 	font-weight:600;
 	letter-spacing: 2px;
 	font-size: 18px;
+	position:relative;
 	overflow:hidden;
 	z-index:1;
 	&:after{
@@ -79,7 +75,8 @@ body{
 		transition: width 0.3s cubic-bezier(0.455, 0.03, 0.515, 0.955);
 		}
 	&:hover{
-	color:#fff !important;
+		cursor:pointer;
+		color:#fff !important;
 	}
 	&:hover:after{
 		width:200%;
@@ -103,6 +100,7 @@ body{
 	font-weight:600;
 	letter-spacing: 2px;
 	overflow:hidden;
+	position:relative;
 	z-index:1;
 	
 	&:after{
@@ -119,7 +117,8 @@ body{
 		transition: width 0.5s cubic-bezier(0.455, 0.03, 0.515, 0.955);
 		}
 	&:hover{
-	color:#fff !important;
+		cursor:pointer;
+		color:#fff !important;
 	}
 	&:hover:after{
 		width:200%;
@@ -149,68 +148,31 @@ button a{
 
 .modal-lg {
     max-width: 70%;
-    }
-@media (max-width: 992px){
-	.modal-lg {
-    max-width: 95% !important;
-    
-    }
-    .modal-content{
-   
-    }
 }
 
-@media(max-width: 768px){
-	
-	.modal-lg {
-    max-width: 95%;
-    }
-
-
-
-}
 
 
 .carousel-item.active{
--webkit-animation: fadein 1.4s;
--moz-animation: fadein 1.4s;
--ms-animation: fadein 1.4s;
--o-animation: fadein 1.4s;
-animation: fadein 1.4s;
+	@include prefix((animation:fadein 1.4s),webkit moz ms o);
 }
-@keyframes fadein {
+
+@include keyframes(fadein){
 from { opacity: 0; }
 to { opacity: 1; }
 }
 
--moz-keyframes fadein {
-from { opacity: 0; }
-to { opacity: 1; }
+.b-lazy {
+	@include prefix((transition:all 500ms ease-in-out));
+    max-width: 100%;
+    opacity: 0;
+ }
+.b-lazy.b-loaded{
+    opacity: 1;
 }
 
--webkit-keyframes fadein {
-from { opacity: 0; }
-to { opacity: 1; }
-}
 
--ms-keyframes fadein {
-from { opacity: 0; }
-to { opacity: 1; }
-}
-
--o-keyframes fadein {
-from { opacity: 0; }
-to { opacity: 1; }
-}
-
-   .b-lazy {
-        -webkit-transition: all 500ms ease-in-out;
-        -moz-transition: all 500ms ease-in-out;
-        -o-transition: all 500ms ease-in-out;
-        transition: all 500ms ease-in-out;
-        max-width: 100%;
-        opacity: 0;
+@include mq-mobile-only{
+	.modal-lg {
+   		 max-width: 95% !important;   
     }
-    .b-lazy.b-loaded{
-        opacity: 1;
-    }
+}

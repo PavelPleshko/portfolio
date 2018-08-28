@@ -1,5 +1,6 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
+import {ServiceWorkerModule} from '@angular/service-worker';
 import {RouterModule, Routes } from '@angular/router';
 import {BrowserAnimationsModule} from '@angular/platform-browser/animations';
 import {ContentService} from './shared/services/content.service';
@@ -12,6 +13,9 @@ import { AppComponent } from './app.component';
 import {NgbModule} from '@ng-bootstrap/ng-bootstrap';
 import {environment} from '../environments/environment';
 
+//import {WebControllerModule} from './shared/modules/web-controller/web-controller.module';
+//import {CommandsService} from './shared/services/commands.service';
+//import {commands} from './shared/commands';
 
 
 const routes:Routes = [
@@ -24,11 +28,15 @@ const routes:Routes = [
 
 
 export const MODULES = [
-BrowserModule,RouterModule.forRoot(routes),
-BrowserAnimationsModule,SharedModule,MainModule,NgbModule.forRoot()
+BrowserModule.withServerTransition({ appId: 'portfolio' }),RouterModule.forRoot(routes),
+BrowserAnimationsModule,SharedModule,MainModule,NgbModule.forRoot(),
+ServiceWorkerModule.register('/ngsw-worker.js',{enabled:environment.production}),
+//WebControllerModule.forRoot(commands,CommandsService,{continuous:true})
 ];
 
-
+export const PROVIDERS = [
+ContentService,DataLoadService
+]
 
 @NgModule({
   declarations: [
@@ -37,8 +45,8 @@ BrowserAnimationsModule,SharedModule,MainModule,NgbModule.forRoot()
   imports: [
     ...MODULES
   ],
-  
-  providers: [ContentService,DataLoadService],
+  providers: [...PROVIDERS],
   bootstrap: [AppComponent]
 })
+
 export class AppModule { }

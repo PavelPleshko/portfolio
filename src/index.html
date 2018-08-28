@@ -12,7 +12,7 @@
   <meta name="theme-color" content="#3F51B5">
   <meta name="description" content="Pleshko Pavel. Full stack web developer.">
   <link rel="manifest" href="manifest.json">
-  <link rel="icon" type="image/x-icon" href="/assets/icons/favicon.ico">
+  <link rel="icon" type="image/x-icon" href="favicon.ico">
   <link rel="mask-icon" href="/assets/icons/safari-pinned-tab.svg" color="#5bbad5">
   <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
   <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.2.0/css/all.css" crossorigin="anonymous">
@@ -23,6 +23,7 @@
 
 </head>
 <body>
+  <div style="overflow-x: hidden;">
   <app-root>
    <style>
 .container {
@@ -142,21 +143,11 @@
      </div>
    </div>
    </app-root>
-    
+    </div>
 <noscript>
   This app works with Javascript being enabled. Enable Javascript in Browser and try again!
 </noscript>
- <script>
-    if ('serviceWorker' in navigator) {
-      navigator.serviceWorker.register('/service-worker.js')
-      .then(function(registration){
-        console.log('SW registered');
-      })
-      .catch(function(err){
-        console.log('SW error', err);
-      });
-    }
- </script>
+
 
  <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js">
   </script>

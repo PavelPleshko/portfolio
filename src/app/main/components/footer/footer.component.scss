@@ -1,25 +1,26 @@
 /deep/ .material-footer{
-	background-color:#212121;
-	color:#999;
-	&-copyright{
-	position:relative;
-	left:5%;
-	font-size:60%;
-	font-weight:700;
-	}
+		background-color:#212121;
+		color:#999;
+		display:flex;
+		align-items:center;
+	
+		&-copyright{
+			position:relative;
+			left:5%;
+			font-size:60%;
+			font-weight:700;
+		}
 
-	&-powered{
-	position:absolute;
-	right:5%;
-	font-size:60%;
-	font-family:cursive;
-
-	a{
-	color:#448aff;
-	&:hover{
-	text-decoration:none;
-	color:#82b1ff;
-	}
-	}
-	}
+		&-powered{
+			position:absolute;
+			right:5%;
+			font-size:60%;
+			a{
+				color:#448aff;
+				&:hover{
+					text-decoration:none;
+					color:#82b1ff;
+				}
+			}
+		}
 }

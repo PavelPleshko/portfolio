@@ -1,16 +1,17 @@
-.status{
+@import 'mixins';
 
+.status{
 	a{
-	text-decoration:none;
+		text-decoration:none;
 	}
 	&-body{
 		position: absolute;
 		left: 50%;
 		top: 40%;
-		transform: translateX(-50%) translateY(-50%);
+		@include prefix((transform: translate(-50%,-50%)));
 		text-align: center;
 		&-header{
-			font-size: 2rem;
+			font-size: 1.5rem;
 			font-weight: 900;
 			color: #a09797;
 			white-space:nowrap;
@@ -18,146 +19,106 @@
 		&-info{
 			color: #4caf50;
 			font-size: 1.5em;
-			font-family: superstar;
-			letter-spacing:2px;
+			letter-spacing:1px;
 			i{
-			font-size: 3em;
+				font-size: 2.5rem;
 			}
 		}
 	}
 	&-img-wrapper{
-	overflow:hidden;
-	padding:0 20%;
+		overflow:hidden;
+		padding:0 15%;
 	}
 
 	&-img{
-	position:relative;
-	width:100%;
-
-
+		position:relative;
+		width:100%;
 	}
 
 	.message{
-	right: 9%;
-    position: relative;
+		right: 9%;
+	    position: relative;
 	&-body{
-			padding: 50px;
-			background:#dedede;
-			margin:0 5%;
-			border-radius:15px;
-			position:relative;
-			&:before{
+		padding: 50px;
+		background:#dedede;
+		margin:0 5%;
+		border-radius:15px;
+		position:relative;
+		&:before{
 			content:'';
-			position:absolute;
-			border-top:28px solid transparent;
-			border-bottom:28px solid transparent;
-			border-right:48px solid #dedede;
 			left: -28px;
-    		top: 25%;
-
-			}
-			&-text{
-				
-				color: #7b6b6b;
-				font-size: 120%;
-			}
+			@include arrow(left,#dedede,28px);			
+    		@include align-center(vertical,absolute);
+		}
+		&-text{	
+			color: #7b6b6b;
+			font-size: 120%;
+		}
 	}
 
 	}
 }
 
 
-@media(max-width: 1024px){
+@media(max-width: 1068px){
 
 .status{
 	&-img-wrapper{
 	padding:0 5%;
 	}
-
-	.message{
-	right:0%;
-	}
-}
-
-
-
-}
-
-@media(max-width: 768px){
-	
-
-.status{
-	margin:0;
-	&-img{
-	   
-	    width:100%;
-	}
-
 	&-body{
-	left:50%;
 	top:50%;
-	width:100%;
 
-	&-info{
-	font-size: 1.2rem;
-	}
 	&-header{
-	font-size:1em;
+		font-size:1.5rem;
 	}
 	}
+
 	.message{
 	right:0%;
-	margin-top:0;
-
 	&-body{
-	padding:30px;
-	margin-right:0;
-	
-	&-text{
-	font-size:100%;
-
-	}
+		margin:0;
+		padding:20px;
 	}
 	}
 }
-	
+
+
+
 }
 
-@media only screen 
-  and (max-device-width: 768px){
+
+
+@include  mq-small-mobile-devices{
   	.status{
-  	transform: translateY(-4em);
-  	text-align:center;
+	  	transform: translateY(-4em);
+	  	text-align:center;
 
 
 	&-img{
-	width:100%;
+		width:100%;
 	}
 
 	&-body{
-	left:50%;
+		left:50%;
+		top:50%;
 
 	&-info{
-	font-size: 1rem;
+		font-size: 1rem;
 	}
 	
 	}
 	.message{
-	transform: translateY(1em);
-	margin-top:0;
+		transform: translateY(1em);
+		margin-top:0;
 
 	&-body{
-	margin:1em;
-	&:before{
-	top:-20px;
-	left:50%;
-	transform:translateX(-50%);
-    border:none;
-    border-right: 20px solid transparent;
-    border-left: 20px solid transparent;
-    border-bottom: 20px solid #dedede;
-    
-	}
+		margin:1em;
+		&:before{
+			top:-45px;
+		    @include arrow(top,#dedede,20px);			
+		    @include align-center(horizontal,absolute); 
+		}
 	}
 	}
 }

@@ -1,3 +1,5 @@
+@import 'mixins';
+
 .pcontainer{
 	padding: 5% 5%;
 	margin:0 5%;
@@ -8,7 +10,7 @@
 }
 
 
-@media(max-width: 768px){
+@include mq-small-mobile-devices{
 
 
 	.pcontainer{
@@ -20,8 +22,7 @@
 	}
 }
 
-@media only screen 
-  and (max-device-width: 480px){
+@include mq-mobile-only{
  .pcontainer{
 	padding:1.5em 0;
 	&:last-child{

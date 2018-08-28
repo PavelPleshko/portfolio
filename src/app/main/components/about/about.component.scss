@@ -1,72 +1,56 @@
+@import 'mixins';
+
 :host{
 	position:relative;
 	height:100%;
 	display:flex;
 	align-items:flex-end;
 	padding-right:4rem;
-}
-.about-custom-card{
 
-	font-size: 120%;
-	font-weight:200;
-	&-body{
-
-	p{
-		font-family: 'Quicksand', sans-serif;
-		margin-left:35px;
-		color:#fff;
-		opacity: .9;
-		line-height: 38px;
-	}
-	}
-	&-header{
-	font-weight:900;
-	font-size: 200%;
-	text-align:left;
-	font-family:'superstar';
-	text-transform:uppercase;
-	&:before{
-	content:'< ';
-	font-family:initial;
-	}
-	&:after{
-	content:' />';
-	font-family:initial;
-	}
-	}
-	&-actions{
-	text-align:right;
-	
-	}
-}
-
-@media(max-width: 768px){
 	.about-custom-card{
-	font-size:100%;
-
-	&-body{
-
-	p{
-	line-height:1.2em;
-	}
-	}
-
-	&-header{
-	font-size: 150%;
-	font-weight:700;
-	text-align:center;
-	}
-
-	&-actions{
-	text-align:center;
-	button{
-	font-size:80%;
-	&.custom-btn-primary.big{
-	padding:0 1em !important;
-	}
-	}
-	}
+		font-size: 120%;
+		font-weight:200;
+		&-body{
+			p{
+				margin-left:35px;
+				color:#fff;
+				line-height: 38px;
+			}
+		}
+		&-header{
+			font-size: 200%;
+			text-align:left;
+		}
+		&-actions{
+			text-align:right;
+		}
 	}
 
+	@include mq-tablet-only {
+		.about-custom-card{
+		font-size:100%;
 
+		&-body{
+			p{
+				line-height:1.2em;
+			}
+		}
+
+		&-header{
+		font-size: 150%;
+		font-weight:700;
+		text-align:center;
+		}
+
+		&-actions{
+			text-align:center;
+			button{
+				font-size:80%;
+			&.custom-btn-primary.big{
+				padding:0 1em !important;
+			}
+			}
+		}
+		}
+	}
 }

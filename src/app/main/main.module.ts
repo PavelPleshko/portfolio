@@ -4,7 +4,6 @@ import {NavbarComponent,MainComponent} from './index';
 import {SharedModule} from '../shared/shared.module';
 import { AboutComponent } from './components/about/about.component';
 import { PhotoComponent } from './components/photo/photo.component';
-import { DownloadResumeComponent } from './components/download-resume/download-resume.component';
 import { SkillListComponent } from './components/skill-list/skill-list.component';
 import { SkillCardComponent } from './components/skill-card/skill-card.component';
 import { FooterComponent } from './components/footer/footer.component';
@@ -20,14 +19,15 @@ RouterModule.forChild(routes),SharedModule.forRoot()
 ];
 
 export const COMPONENTS = [
-NavbarComponent,MainComponent,FooterComponent,ServicesComponent
+NavbarComponent,MainComponent,FooterComponent,ServicesComponent,
+AboutComponent, PhotoComponent, SkillListComponent, SkillCardComponent, FooterComponent, StatusComponent
 ];
 
 @NgModule({
   imports: [
     ...MODULES
   ],
-  declarations: [...COMPONENTS, AboutComponent, PhotoComponent, DownloadResumeComponent, SkillListComponent, SkillCardComponent, FooterComponent, StatusComponent],
+  declarations: [...COMPONENTS],
   exports:[...COMPONENTS]
 })
 export class MainModule { }

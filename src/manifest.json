@@ -4,10 +4,8 @@
 	"start_url":".",
 	"theme_color":"#3F51B5",
 	"background_color":"#ccc",
-
 	"display":"standalone",
 	"orientation":"portrait",
-
 	  "icons":[
   {
    "src": "/assets/icons/favicon-16x16.png",

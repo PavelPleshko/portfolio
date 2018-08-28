@@ -1,0 +1,51 @@
+{
+  "index": "/index.html",
+  "assetGroups": [{
+    "name": "app",
+    "installMode": "prefetch",
+    "resources": {
+      "files": [
+        "/favicon.ico",
+        "/index.html"
+      ],
+      "files": [
+        "/*.bundle.css",
+        "/*.bundle.js",
+        "/*.chunk.js",
+        "/main*.js"
+              ],
+      "urls":[
+        "https://fonts.googleapis.com/icon?family=Material+Icons",
+        "https://use.fontawesome.com/releases/v5.2.0/css/all.css",
+        "https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css",
+        "https://fonts.googleapis.com/css?family=Montserrat:400,700",
+        "https://code.jquery.com/jquery-3.2.1.slim.min.js",
+        "https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"
+      ]
+    }
+  }, {
+    "name": "assets",
+    "installMode": "lazy",
+    "updateMode": "prefetch",
+    "resources": {
+      "files": [
+        "/assets/**"
+      ]
+    }
+  }],
+  "dataGroups":[
+    {
+      "name":"contentful",
+      "urls":[
+        "https://cdn.contentful.com/spaces/ofnpzn1i8kol/environments/master/entries*"
+      ],
+      "cacheConfig":{
+        "maxSize":25,
+        "maxAge":"12h",
+        "timeout":"7s",
+        "strategy":"freshness"
+
+      }
+    }
+  ]
+}

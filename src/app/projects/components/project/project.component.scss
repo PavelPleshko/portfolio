@@ -1,37 +1,37 @@
+@import 'mixins';
+
 .project{
 	
 
 	&-more{
-	 color: rgba(#003EFF,.4);
-	 transition:.2s;
+		 color: rgba(#003EFF,.4);
+		 @include prefix((transition:.2s));
 	&:hover{
 		 color: rgba(#003EFF,.7);
 		 cursor:pointer;
-		    }
+		   }
 	}
 
 	.custom-card-title{
-	font-weight:700;
-	text-transform:uppercase;
+		font-weight:700;
+		text-transform:uppercase;
 	}
 
 	.custom-img-wrapper{
 		width:100%;
-	max-width:30rem;
-	height:15em;
-	box-shadow:0px 0px 2px 1px rgba(0,0,0,.2);
-	overflow:hidden;
+		max-width:30rem;
+		height:15em;
+		box-shadow:0px 0px 2px 1px rgba(0,0,0,.2);
+		overflow:hidden;
 	
 
 	.custom-card-img-top{
-	background-position:50% 50%;
-	background-size:cover;
-	width:100%;
-	height:100%;
-	transition:all .4s ease-in-out;
+		@include bg-image-cover;
+		@include full-of-parent;
+		@include prefix((transition:all .4s ease-in-out));
 
 	&:hover{
-	transform:scale3d(1.1,1.1,1.1);
+		@include prefix((transform:scale3d(1.1,1.1,1.1)));
 	}
 	}
 	}
@@ -39,11 +39,11 @@
 	
 	
 	.custom-card-text{
-	font-size:.8em;
+		font-size:.8em;
 	}
 
 	.custom-card-actions{
-	padding:0.5em 0;
+		padding:0.5em 0;
 	}
 }
 

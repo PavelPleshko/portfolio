@@ -5,16 +5,12 @@ import {DataLoadService} from '../../shared/services/data-load.service';
   templateUrl: './preloader.component.html',
   styleUrls: ['./preloader.component.scss']
 })
-export class PreloaderComponent implements OnInit {
+export class PreloaderComponent{
 contentLoaded:boolean;
   constructor(public dataLoadService:DataLoadService) {
   this.dataLoadService.contentLoaded.subscribe((loaded)=>{
  		this.contentLoaded = loaded;	
  	});
  	 }
-
-  ngOnInit() {
-  	
-  }
 
 }
