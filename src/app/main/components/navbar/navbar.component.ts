@@ -21,7 +21,7 @@ enum VisibilityState {
   selector: 'app-navbar',
   templateUrl: './navbar.component.html',
   styleUrls: ['./navbar.component.scss'],
- //changeDetection:ChangeDetectionStrategy.OnPush,
+ // changeDetection:ChangeDetectionStrategy.OnPush,
   animations:[navbarAnimation]
 })
 export class NavbarComponent implements OnInit,AfterViewInit,OnDestroy {
@@ -31,7 +31,7 @@ export class NavbarComponent implements OnInit,AfterViewInit,OnDestroy {
 get toggle():VisibilityState{
     return this.isVisible ? VisibilityState.Visible : VisibilityState.Hidden
 }
-
+toggledMenu:boolean = false;
 isVisible:boolean=true;
 menuListener;
 scrollReachedTop$:Observable<any>;
@@ -63,6 +63,9 @@ subscriptions:Array<any>=[];
   		this.renderer.removeClass(this.mobileMenu.nativeElement,'show')
   }
 
+  toggleMenu(){
+    this.toggledMenu = !this.toggledMenu;
+  }
 
   ngOnDestroy(){
   	}

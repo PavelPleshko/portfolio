@@ -3,7 +3,7 @@
 <div class="col-lg-7 col-md-7 col-sm-12 col-xs-12">
 	<div class="status-img-wrapper">
 	<div class="status-body">
-		<h3 class="status-body-header">CURRENT STATUS:</h3>
+		<h3 class="status-body-header text-uppercase">Current status</h3>
 		<div class="status-body-info" [ngStyle]="{'color':currentStatus.color}">
 			<div>{{currentStatus.title}}</div>
 			<i class="fa fa-{{currentStatus.iconName}}"></i>
@@ -19,8 +19,8 @@
 		<p class="message-body-text">
 			{{currentStatus.messages[0]}}
 		</p>
-		<button class="custom-btn-primary small">
-			<a [routerLink]="['/contacts']">SEND MESSAGE</a>
+		<button class="pw-btn pw-btn-secondary btn-rounded">
+			<a [routerLink]="['/contacts']">Send message</a>
 		</button>
 	</div>
 	</div>

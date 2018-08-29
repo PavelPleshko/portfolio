@@ -1,8 +1,11 @@
 @import 'mixins';
+@import 'theme';
 
 .product-types{
 	padding:2rem 4rem;
-	background-color:#dedede;
+	background: get_theme_color(secondary);
+	@include prefix((background: linear-gradient(60deg, get_theme_color(primary),get_theme_color(secondary))));  
+	color:#fff;
 	&-header{
 		text-align:center;
 		white-space:nowrap;
@@ -10,7 +13,7 @@
 			font-weight:700;
 			letter-spacing:1px;
 			font-size:1.8rem;
-		    padding: 4px 10px;
+		    border-bottom: 2px solid;
 		}
 	}
 	&-list{
@@ -27,14 +30,14 @@
 			}
 
 			.custom-card-text{
-				line-height:1.2;
-				padding:0 2rem;
+
 			}
 			.icon-wrapper{
 				@include prefix((border-radius:50%));
 			    background-color: #5262bc;
 			    display: inline-flex;
-			    color: #fff;	  
+			    color: #fff;
+			    border:3px solid #fff;	  
 			    vertical-align: middle;
 			    width: 7rem;
 			    height: 7rem;

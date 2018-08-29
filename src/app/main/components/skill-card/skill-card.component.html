@@ -1,10 +1,18 @@
 <div class="card skill-card">
-<img src="data:image/gif;base64,R0lGODlhAQABAIAAAP///wAAACH5BAEAAAAALAAAAAABAAEAAAICRAEAOw" attr.data-blazy="https:{{skill.icon.fields.file.url}}" alt="{{skill.title}}" class="skill-card-image b-lazy">
-<div class="skill-card-body card-body">
+<img src="data:image/gif;base64,R0lGODlhAQABAIAAAP///wAAACH5BAEAAAAALAAAAAABAAEAAAICRAEAOw" attr.data-blazy="https:{{skill.icon.fields.file.url}}" alt="{{skill.title}}" class="skill-card__image b-lazy">
+<div class="skill-card__header">
+	<span class="skill-card__header-btn-red">	
+	</span>
+	<span class="skill-card__header-btn-orange">
+	</span>
+	<span class="skill-card__header-btn-green">
+	</span>
+</div>
+<div class="skill-card__body card-body">
 
-<ul class="mt-5 list-group">
-	<li class="list-group-item list-group-item-action" *ngFor="let ability of skill.abilities">
-		<span class="skill-card-list-item-desc">{{ability}}</span><mat-icon class="skill-card-list-item-icon">verified_user</mat-icon>
+<ul class="mt-5 list-group skill-card__list">
+	<li class="skill-card__list__item list-group-item-action" *ngFor="let ability of skill.abilities">
+		<span class="skill-card__list-item-desc">{{ability}}</span>
 	</li>
 </ul>
 </div>

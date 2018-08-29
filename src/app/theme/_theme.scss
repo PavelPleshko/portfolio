@@ -1,0 +1,20 @@
+
+$theme: (
+	main:(
+	  appBg:#fafafa,
+	  textBase:#6c7686,
+	  divider:#ededed,
+	  primary:#17b9e6,
+	  secondary:#a117e6,
+	  light:#ccc,
+	  accent:#e67417,
+	  textContrast:#ffffff,
+	  contrastHover:rgba(255,255,255,.75),
+	  disabled:#9c9c9c
+	)	
+);
+
+
+@function get_theme_color($colorKey,$themeKey:main){
+	@return map-get(map-get($theme,$themeKey),$colorKey);
+}

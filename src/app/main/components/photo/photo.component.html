@@ -1,33 +1,35 @@
 <div class="profile">
 	
-	<div class="main-wrapper align-items-center"  [style.background]="'url(/assets/img/hero.png)'">
-		<div class="container row no-gutters wrapper-inner">
-		<div class="col-lg-4 col-xl-3 col-md-6 col-sm-12 col-xs-12">
-			<div class="profile-avatar" [style.background-image]="image" [@slideInOutWithFadeLeft]="animationState">
+	<div class="main-wrapper align-items-center">
+		<div class="main-wrapper--container" [style.background]="'url(/assets/img/hero.png)'">
+			<div class="container row no-gutters wrapper-inner">
+			<div class="col-lg-4 col-xl-3 col-md-6 col-sm-12 col-xs-12">
+				<div class="profile-avatar" [style.background-image]="image" [@slideInOutWithFadeLeft]="animationState">
 
+				</div>
 			</div>
-		</div>
-		<div class="profile-intro col-lg-8 col-xl-9 col-md-6 col-sm-12 col-xs-12  align-middle" [@slideInOutWithFadeRight]="animationState">
-			<div class="profile-about d-md-none d-none d-lg-block">
-				<app-about [data]="leftColumn"></app-about>
-			</div>
-			<div class="profile-short-desc d-none d-md-block d-xl-none d-lg-none">
-				<ul class="">
-					<li class="">Web development</li>
-					<li class="">Web design</li>
-					<li class=""><a mat-raised-button [routerLink]="['/projects']" color="primary" class="">
-					View projects
-				</a></li>
+			<div class="profile-intro col-lg-8 col-xl-9 col-md-6 col-sm-12 col-xs-12  align-middle" [@slideInOutWithFadeRight]="animationState">
+				<div class="profile-about d-md-none d-none d-lg-block">
+					<app-about [data]="leftColumn"></app-about>
+				</div>
+				<div class="profile-short-desc d-none d-md-block d-xl-none d-lg-none">
+					<ul class="">
+						<li class="">Web development</li>
+						<li class="">Web design</li>
+						<li><a [routerLink]="['/projects']" class="pw-btn pw-btn-action btn-rounded mt-1 font-weight-bold">
+						Explore projects
+					</a></li>
 
-				</ul>
-			</div>
-			<div class="d-block d-sm-block d-md-none text-center buttons-mobile">
-				<a [routerLink]="['/projects']" class="btn btn-primary">
-					MY PROJECTS
-				</a>
-				<a rel="noopener" attr.aria-label="Resume" href="{{resumeLink}}" class="btn btn-success">
-					RESUME
-				</a>
+					</ul>
+				</div>
+				<div class="d-block d-sm-block d-md-none text-center buttons-mobile px-5">
+					<a [routerLink]="['/projects']" class="pw-btn pw-btn-action btn-rounded font-weight-bold">
+						Explore projects
+					</a>
+					<a rel="noopener" attr.aria-label="Resume" href="{{resumeLink}}" class="pw-btn pw-btn-default btn-rounded font-weight-bold">
+						Check resume
+					</a>
+				</div>
 			</div>
 		</div>
 	</div>

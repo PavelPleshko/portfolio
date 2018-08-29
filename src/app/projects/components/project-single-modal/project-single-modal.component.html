@@ -23,7 +23,7 @@
 		<div class="col-sm-12 col-xs-12 custom-modal-body">
 			<div class="technologies mb-3">
 
-<span *ngFor="let technology of project.technologies" class="badge badge-pill badge-secondary mr-1 text-capitalize">#{{technology}}</span>
+<span *ngFor="let technology of project.technologies" class="badge badge-pill pw-badge mr-1 text-capitalize">#{{technology}}</span>
 
 	</div>
 	<div class="scroll-wrapper">
@@ -45,8 +45,8 @@
 <div class="custom-modal-footer">
 	<div class="custom-links text-right">
 	<div class="custom-links-inner">
-<button *ngIf="project.demoLink" class="btn btn-outline-primary text-uppercase mr-1"><a href="{{project.demoLink}}" target="_blank">See Demo</a></button>
-<button *ngIf="project.codeLink" class="btn btn-outline-secondary text-uppercase"><a href="{{project.codeLink}}" target="_blank">Code</a></button>
+<button *ngIf="project.demoLink" class="pw-btn pw-btn-primary btn-rounded text-uppercase mr-1 px-3 py-2"><a href="{{project.demoLink}}" target="_blank">See Demo</a></button>
+<button *ngIf="project.codeLink" class="pw-btn pw-btn-secondary btn-rounded text-uppercase mr-1 px-3 py-2"><a href="{{project.codeLink}}" target="_blank">Code</a></button>
 </div>
 </div>
 </div>

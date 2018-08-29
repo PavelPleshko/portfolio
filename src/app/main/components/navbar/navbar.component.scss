@@ -1,26 +1,34 @@
 @import 'mixins';
+@import 'theme';
+
+$nav-textContrast:get_theme_color(textContrast);
+$nav-contrastHover:get_theme_color(contrastHover);
+$nav-secondary-color:get_theme_color(secondary);
+$nav-border-color:get_theme_color(divider);
 
 .material-navbar{
 	position:fixed;
-	min-height:4.5rem;
-	box-shadow:1px 5px 15px 2px rgba(0,0,0,.4);
+	min-height:4.5rem;	
 	z-index:99;
-	background-color: rgb(255, 255, 255);
+	@include prefix((box-shadow:1px 5px 15px 2px rgba(0,0,0,.4)));
+	background-color: $nav-secondary-color;
 	width:100%;
-	color:#212121;
+	color:$nav-textContrast;
 
 	.nav-wrapper{
 		position:relative;
 	}
-	&.scrolledTop{
+	&.scrolledTop:not(.toggledMenu){
 		background-color:transparent;
 		box-shadow:none;
-		color:#ffffff;
+
+		
 	}
 	
 	.navbar-toggler{
 	outline:none;
 	color:inherit;
+	border:none;
 		.material-icons{
 		font-size:200%;
 		}
@@ -40,7 +48,6 @@
 	button:not(.navbar-toggler){
 		font-size: .8em;
 		vertical-align:middle;
-		font-weight: 600;
 		outline:none;
 		margin-left:.2em;
 	
@@ -48,23 +55,6 @@
 			margin-right:4px;
 			vertical-align:middle;
 		}
-	}
-	.social-list{
-		display:flex;
-		list-style:none;
-
-	&-item{
-		margin:0 12px;
-		opacity:0.8;
-		cursor:pointer;
-		border-radius:3px;
-		@include prefix((transition:.2s linear));
-
-	&:hover{
-	opacity:1;
-	@include prefix((transform:scale(1.1)));
-	}
-	}
 	}
 
 
@@ -96,10 +86,10 @@
   	.social-list{  
 	    @include prefix((border-radius: 20px));
 	    padding: 5px;
-	    border: 2px solid #dedede;
+	    border: 2px solid $nav-border-color;
 
 	    div{
-	        border-right: 1px solid #dedede;
+	        border-right: 1px solid $nav-border-color;
 	         &:last-child{
 	       		 border-right:none;
 	       	}      

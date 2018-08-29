@@ -2,12 +2,11 @@
 	<h3 class="text-center main-header mb-4">Project list</h3>
 <div class="project-list">
 
-<div *ngFor="let project of projects;let i=index;let last=last;">
-	<div class="project-single">
+<div *ngFor="let project of projects;let i=index;">
+	<div class="project-single pw-card">
 <app-project class="project-list-item px-sm-4 px-md-4"  [index]="i" [project]="project"></app-project>
 
 </div>
-<div class="divider" *ngIf="!last"></div>
 </div>
 </div>
 

@@ -1,13 +1,15 @@
+@import 'mixins';
+@import 'theme';
+
+$overlay-color:get_theme_color(secondary);
+
 .banner{
 	width:100%;
 
 	.img-wrapper{
-	width:100%;
-	height:25rem;
 	overflow:hidden;
 	position:relative;
-	background-position:50% 50%;
-	background-size:cover;
+	@include bg-image-cover(100%,25rem);
 	
 
 	&:before{
@@ -15,9 +17,8 @@
 		position:absolute;
 		top:0;
 		left:0;
-		width:100%;
-		height:100%;
-		background:rgba(0,0,0,.5);
+		@include full-of-parent;
+		background:rgba($overlay-color,.4);
 	}
 }
 }

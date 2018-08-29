@@ -1,4 +1,6 @@
 @import 'mixins';
+@import 'theme';
+@import 'variables';
 
 .status{
 	a{
@@ -12,12 +14,13 @@
 		text-align: center;
 		&-header{
 			font-size: 1.5rem;
-			font-weight: 900;
+			font-weight: 400;
 			color: #a09797;
 			white-space:nowrap;
 		}
 		&-info{
 			color: #4caf50;
+			font-weight: 900;
 			font-size: 1.5em;
 			letter-spacing:1px;
 			i{
@@ -40,15 +43,24 @@
 	    position: relative;
 	&-body{
 		padding: 50px;
-		background:#dedede;
+		background:#ffffff;
+		@include prefix((box-shadow:$mild-dark-shadow))
 		margin:0 5%;
 		border-radius:15px;
 		position:relative;
 		&:before{
 			content:'';
 			left: -28px;
-			@include arrow(left,#dedede,28px);			
+			@include arrow(left,#ffffff,28px);			
     		@include align-center(vertical,absolute);
+    		z-index:1;
+		}	
+		&:after{
+			content:'';
+			left: -30px;
+			@include arrow(left,#dedede,28px);
+			@include align-center(vertical,absolute);			
+    		z-index:0;
 		}
 		&-text{	
 			color: #7b6b6b;
@@ -89,9 +101,9 @@
 
 
 
-@include  mq-small-mobile-devices{
+@include  mq-mobile-only{
   	.status{
-	  	transform: translateY(-4em);
+	  	@include prefix((transform: translateY(-4em)));
 	  	text-align:center;
 
 
@@ -116,6 +128,11 @@
 		margin:1em;
 		&:before{
 			top:-45px;
+		    @include arrow(top,#ffffff,20px);			
+		    @include align-center(horizontal,absolute); 
+		}
+		&:after{
+			top:-47px;
 		    @include arrow(top,#dedede,20px);			
 		    @include align-center(horizontal,absolute); 
 		}

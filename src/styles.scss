@@ -1,6 +1,7 @@
 @import "~@angular/material/prebuilt-themes/indigo-pink.css";
 @import 'mixins';
 @import 'variables';
+@import 'theme';
 
 
 *{
@@ -14,7 +15,19 @@ body,html{
 	  overflow-x: hidden;
 	  font-family: "Montserrat",sans-serif;
 	  position:relative;
+	  color:get_theme_color(textBase);
 }
+
+button{
+	a{
+		color:inherit;
+		&:hover{
+			color:inherit;
+			text-decoration:none;
+		}
+	}	
+}
+
 
 @include mq-mobile-only{
 	body,html{
@@ -22,15 +35,6 @@ body,html{
 	}
 }
 	
-
-
-.primary-color{
-	color:$primaryColor !important;
-}
-
-.secondary-color{
-	color: $secondaryColor !important;
-}
 
 .skype-color{
 	color:$skype;
@@ -41,7 +45,83 @@ body,html{
 
 
 .btn-rounded{
-	border-radius:20px;
+	@include prefix((border-radius:2rem !important));
+}
+
+.pw-btn{
+
+	@include prefix((
+		border-radius:3px,
+		transition:.2s ease-in-out,
+		box-shadow:inset 0 0 0 0.125rem get_theme_color(textContrast)
+		));
+		color:get_theme_color(textContrast);
+		border:0;
+		font-weight:400;
+		font-size:1rem;
+		background:transparent;
+		box-sizing:border-box;
+		padding: .9rem 1.6rem;
+
+		&-default{
+			.big{
+				padding:10px 30px;
+			}
+			&:hover{
+				box-shadow: inset 0 0 0 0.185rem get_theme_color(textContrast);
+				cursor:pointer;
+			}
+		}
+
+		&-action{
+			background-color:get_theme_color(textContrast);
+			color:get_theme_color(textBase);
+			@include prefix((transition:.2s ease-in-out,box-shadow: 0 4px 12px 0 rgba(9,23,92,.2)));
+			&:hover{
+				@include prefix((transform:scale(1.05,1.05),box-shadow:0 10px 30px 0 rgba(9,23,92,.6)));
+				color:get_theme_color(textBase);
+				cursor:pointer;
+			}
+		}
+
+		&-primary{
+			background-color:get_theme_color(primary);
+			box-shadow: inset 0 0 0 0.125rem get_theme_color(primary);
+			color:get_theme_color(textContrast);
+			@include prefix((transition: box-shadow ease-in-out .3s));
+			&:hover{
+				background-color:transparent;
+				box-shadow: inset 0 0 0 0.195rem get_theme_color(primary);
+				color:get_theme_color(primary);
+				cursor:pointer;
+			}
+		}
+		&-secondary{
+			background-color:get_theme_color(secondary);
+			box-shadow: inset 0 0 0 0.125rem get_theme_color(secondary);
+			color:get_theme_color(textContrast);
+			@include prefix((transition: box-shadow ease-in-out .3s));
+			&:hover{
+				background-color:transparent;
+				box-shadow: inset 0 0 0 0.195rem get_theme_color(secondary);
+				color:get_theme_color(secondary);
+				cursor:pointer;
+			}
+		}
+}
+
+.pw-badge{
+		background-color:get_theme_color(accent);
+		color:get_theme_color(textContrast);
+}
+
+.pw-card{
+	padding:1.5rem 2rem;
+	@include prefix((
+		box-shadow:$mild-dark-shadow,
+		border-radius:.5rem
+		));
+	background-color:#ffffff;
 }
 
 .custom-btn-primary{
@@ -136,15 +216,9 @@ body,html{
 	color:#fff !important;
 }
 
-button a{
-	
-	color:inherit;
-	&:hover{
-	color:#fff;
-	text-decoration:none;
-	}
+.light-bg{
+	background-color:get_theme_color(appBg);
 }
-
 
 .modal-lg {
     max-width: 70%;

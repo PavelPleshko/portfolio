@@ -42,7 +42,7 @@
                     </mat-form-field>
                    </div>
 
-                      <div class=""><button (click)="submitForm()" class="custom-btn-primary big">Submit</button></div>
+                      <div class=""><button (click)="submitForm()" class="pw-btn pw-btn-primary btn-rounded px-5">Submit</button></div>
                     
                   </form>
 
@@ -51,6 +51,6 @@
                   <p class="alert alert-success"><mat-icon class="notification-icon">done</mat-icon>Thank you for your message! I will get back to you ASAP.</p>
                 </div>
                 <div *ngIf="submitted && error">
-                  <p class="alert alert-danger"><mat-icon class="notification-icon">close</mat-icon>An error occurred. Please try again later. <small><b>{{error}}</b></small>. <a (click)="resetState()"><strong>Retry?</strong></a></p>
+                  <p class="alert alert-danger"><mat-icon class="notification-icon">close</mat-icon>An error occurred. Please try again later. <small><b>{{error}}</b></small>. <a (click)="resetState()" class="notification-icon-retry"><strong>Retry?</strong></a></p>
                 </div>
     

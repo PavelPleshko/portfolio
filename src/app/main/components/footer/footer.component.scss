@@ -1,9 +1,23 @@
+@import 'theme';
+@import 'mixins';
+
 /deep/ .material-footer{
-		background-color:#212121;
-		color:#999;
+		background: get_theme_color(secondary);
+		@include prefix((background: linear-gradient(60deg, get_theme_color(primary),get_theme_color(secondary))));  
+
+		color:#ffffff;
 		display:flex;
 		align-items:center;
-	
+		
+		
+		@include mq-desktop{
+				&-divider{
+					border-top:1px solid get_theme_color(light);
+					top:-1px;
+					@include align-center(horizontal,absolute);
+					width:80%;
+			}
+		}
 		&-copyright{
 			position:relative;
 			left:5%;
@@ -11,16 +25,10 @@
 			font-weight:700;
 		}
 
-		&-powered{
-			position:absolute;
+		&-socials{
 			right:5%;
-			font-size:60%;
-			a{
-				color:#448aff;
-				&:hover{
-					text-decoration:none;
-					color:#82b1ff;
-				}
-			}
+			font-size:80%;
+			@include align-center(vertical,absolute);
+
 		}
 }

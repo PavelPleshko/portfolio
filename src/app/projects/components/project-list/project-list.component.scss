@@ -1,3 +1,7 @@
+@import 'theme';
+
+$divider-color:get_theme_color(divider);
+
 .main-header{
 	   font-weight:700;
 
@@ -17,7 +21,7 @@
 	width:100%;
 	position:relative;
 	height:1px;
-	background:rgba(0,0,0,.1);
+	background:$divider-color;
 }
 
 

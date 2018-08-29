@@ -17,13 +17,14 @@ import { BannerComponent } from './components/banner/banner.component';
 import { LogoComponent } from './components/core/logo/logo.component';
 
 import {ScrollService} from './services/scroll.service';
+import { SocialsComponent } from './components/socials/socials.component';
 
 export const MODULES=[
 CommonModule,HttpClientModule,ReactiveFormsModule
 ];
 
 export const COMPONENTS = [
-PreloaderComponent,BannerComponent,LogoComponent
+PreloaderComponent,BannerComponent,LogoComponent,SocialsComponent
 ];
 
 export const MATERIAL_MODULES=[
@@ -36,7 +37,7 @@ MatCardModule,MatInputModule,MatListModule
   imports: [
     ...MODULES,...MATERIAL_MODULES
     ],
-  declarations: [...COMPONENTS],
+  declarations: [...COMPONENTS, SocialsComponent],
   exports:[...MATERIAL_MODULES,...MODULES,...COMPONENTS],
 })
 

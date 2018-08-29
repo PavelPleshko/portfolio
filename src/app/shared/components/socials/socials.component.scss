@@ -1,0 +1,28 @@
+@import 'mixins';
+@import 'theme';
+
+
+$contrastHover:get_theme_color(contrastHover);
+$iconColor:get_theme_color(textContrast);
+
+.social-list{
+	display:flex;
+	list-style:none;
+		
+
+	&-item{
+		margin:0 12px;
+		cursor:pointer;
+		border-radius:3px;
+		@include prefix((transition:.2s linear));
+		a{
+			color:$iconColor;
+		}
+		&:hover{
+			i{
+				color:$contrastHover;
+				@include prefix((transform:scale(1.1,1.1)));
+			}
+		}
+	}
+}
