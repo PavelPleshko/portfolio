@@ -1,4 +1,5 @@
-
+const EventHooksPlugin = require('event-hooks-webpack-plugin');
+const fs = require('fs-extra');
 const webpack = require("webpack");
 const path = require('path');
 
@@ -28,6 +29,13 @@ module:{
     
 },
 plugins:[
+new EventHooksPlugin({
+        'beforeRun': (compilation, done) => {
+          console.log('Copying source files to compile')
+          fs.copy(path.join(__dirname , 'dist/browser'), path.join(__dirname,'server/dist/browser'));
+          fs.copy(path.join(__dirname , 'dist/server'), path.join(__dirname,'server/dist/server'),done);
+        }
+      }),
  new webpack.NormalModuleReplacementPlugin(/\.\.\/environments\/environment/, '../environments/environment.prod'),
 new webpack.ContextReplacementPlugin(
       /(.+)?angular(\\|\/)core(.+)?/,

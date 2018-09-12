@@ -1,0 +1,6 @@
+{
+    "verbose": false,
+    "ignore":["./server/dist"],
+    "watch": [ "./server" ],
+    "exec": "npm run webpack:server && node -r dotenv/config ./server/dist/server.js"
+} 

@@ -8,6 +8,8 @@ const {AppServerModuleNgFactory,LAZY_MODULE_MAP } = require('./dist/server/main'
 const nodemailer = require("nodemailer");
 const bodyParser = require('body-parser');
 const compression = require('compression');
+const csrf = require('csurf');
+const cookieParser = require("cookie-parser");
 const cors = require('cors');
 const helmet = require('helmet');
 const assisters = require('./helpers/lib');
@@ -42,8 +44,10 @@ app.set('view engine', 'html');
 app.set('views', join(DIST_FOLDER,'browser'));
 
 
-  app.use(bodyParser.urlencoded({ extended: true }));
-  app.use(bodyParser.json());
+app.use(bodyParser.urlencoded({ extended: true }));
+app.use(bodyParser.json());
+app.use(cookieParser());
+app.use(csrf({ cookie: true }));
 app.use(cors());
 app.use(helmet());
 app.use(compression());
@@ -58,10 +62,15 @@ var smtpTransport = nodemailer.createTransport({
     }
 });
 
-app.get('*.*',express.static(join(DIST_FOLDER,'browser')));
-app.get('*',(req, res) => {  
-  res.render('index',{req});
-  console.log(req.originalUrl,'New get request');
+var oneWeek = 1000 * 60 * 60 * 24 * 7;
+var requestsSinceLastTime = 0;
+app.get('*.*', express.static(join(DIST_FOLDER, 'browser'), { maxAge: oneWeek, lastModified: true }));
+app.get('*', function (req, res) {
+  var csrfToken = req.csrfToken() || null;
+  res.cookie("csrfToken", csrfToken, { sameSite: true, httpOnly: true });
+  res.render('index', { req: req });
+  console.log(req.originalUrl, 'New get request');
+  console.log(++requestsSinceLastTime, ' requests since last time');
 });
 
 

@@ -1,6 +1,5 @@
 import { NgModule,ModuleWithProviders } from '@angular/core';
 import { CommonModule } from '@angular/common';
-import {HttpClientModule} from '@angular/common/http';
 import {ReactiveFormsModule} from '@angular/forms';
 import {MatMenuModule} from '@angular/material/menu';
 import {MatIconModule} from '@angular/material/icon';
@@ -20,7 +19,7 @@ import {ScrollService} from './services/scroll.service';
 import { SocialsComponent } from './components/socials/socials.component';
 
 export const MODULES=[
-CommonModule,HttpClientModule,ReactiveFormsModule
+CommonModule,ReactiveFormsModule
 ];
 
 export const COMPONENTS = [
@@ -37,7 +36,7 @@ MatCardModule,MatInputModule,MatListModule
   imports: [
     ...MODULES,...MATERIAL_MODULES
     ],
-  declarations: [...COMPONENTS, SocialsComponent],
+  declarations: [...COMPONENTS],
   exports:[...MATERIAL_MODULES,...MODULES,...COMPONENTS],
 })
 
