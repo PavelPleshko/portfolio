@@ -1,0 +1,8 @@
+---
+applications:
+- name: pavel-pleshko
+  memory: 256M
+  instances: 1
+  command: node ./server/dist/server.js
+  timeout: 80
+  host: pleshko-pavel
