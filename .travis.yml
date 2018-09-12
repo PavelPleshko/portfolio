@@ -1,19 +1,19 @@
 language: node_js
 node_js:
-  - "8.10.0"
+- 8.10.0
 install:
-  - npm install --dev
+- npm install --dev
 script:
-  - npm run build:ssr
-  - npm run webpack:server
+- npm run build:ssr
+- npm run webpack:server
 deploy:
   edge: true
   provider: bluemixcloudfoundry
   username: pavelpleshko92@mail.ru
-  password: 
-    secure: "C4gxFdITBZHx9u9k0Mgx2OkKQfjOAyOajBnIQCz62dLm5L/uE24ucW92pu0rHXyGpFKZItlRHbr3EOnjl+c1oj54Ap+3+PycD2XvGedO6dcPc3WpTnXFP+I+BkOFyqcrJMdejDpJAnvpblTJ/Ve+hHsIcxjAbgj2W1FX7i3yUnM6onV52dqHRrwBKhP7cGkOk404aFL7y/y/gBDtDrHk4ThFQnT+69WIX/I7WozJ3vye+bmf0bioKf9EXqWCCWsEbMj0tUtNYMZx+TXsNkUBE0OLc6Mnink0peAmvXqGoSQKzRy3rH+FIDMAas9sFMXZTem+GC6EF8tccZBAmEZLRoUF2O9Eij+xsvZgQupYebCBtZiVvjNmK2dfsrKwTVoHqM3ttIq6b5I8WSCNdf3H0O58uu+FuBJI0Rihrp0+M3jpzHqQLC/HOoPzur8hWeesfiyQKbMotwbhkU2dJ8DLHa8ak0OKueMmvOf1P8TBvAFFt+EDUuCokgcv5MHZHMpbtWBKIpofvjzaF1HRq1s/WP4/1ROFwZzoBzxdfHu24LQzfABvY/8lzVPM+32lDDczVK6GwHYR5Vy1KMNbNGYMoEukaZ3ZE+XNtwDJu2yhrogrxhWsO3vMSSIt4sl1vkzp7JygQz63w6mV8e1bz7z3EnQCTwBB3mV7gHMF/a7d1qQ="
+  password:
+    secure: QOIWqz0Uj1c7G+z2FI5VoEimgHAy3D9WMfoyjJQ3mlKD5Ccd10vNLGRQdYzhrM7495SlE7mHigFB5xdz8bgY4oe2gq8ogWUTPzQ7D7++pxD1pwSMkJn2hYtnGkTr5nzCC+FdDmZJuShGYLJF1nGWVsgNj6jse4WU3qtDMd+o3MGW0CnBjiTabxMyNKxwttqV+NYCYnmSGR86lVzOmWXdwyrFzAe6FQFLLgiPfSaFzWkN4j2THendfObXhnPzNLnYSM1czFH+Xr3yRE09jJ1UG6Qwnz7t/QCjhXliYafsSIuL6iaGTdVpdAtoD48uue/L4tIjcNGkj1v4fxnTAHxMz+FZxKksoUfbTVuGlqarNLlpZlr7k9mbG5adShTAnZXjSRlx85cTGWANz+Nn1+t9n+sWUJYd+gb3CPqMrkEbEzbYHcegFUwLtl2z6aKCwHnARgNusHqC6nzkrZQ5mrWu4paIchQmFKXUETPhCMXdzmsHL/F3e2YcuLGKa0SRne4BZCchS7bwQ9dPboFbzMU+O/Du5f5VvWZEKS7V+aaqytlB4JYy6az/uoBxkTbfpccXekD3OQ1r2z2Tk2n74Qfn2y1VBvb3/EC0oNIwIzFwBAmtd1OD9lcLwe9poiCQWwZIS96Ft1BVMexYOvCHxZaX/T3XYWbdv0vANjcwODgzgG8=
   organization: pavelpleshko92@mail.ru
   space: staging
-  manifest: manifest-prod.yml          # (optional)  Defaults to manifest.yml.
-  region: eu-gb                        # (optional)  [ng, eu-gb , au-syd] Defaults to US South region (ng).
+  manifest: manifest-prod.yml
+  region: eu-gb
   api: https://api.eu-gb.bluemix.net
