@@ -5,7 +5,7 @@ import {RouterModule, Routes } from '@angular/router';
 import {BrowserAnimationsModule} from '@angular/platform-browser/animations';
 import {ContentService} from './shared/services/content.service';
 import {DataLoadService} from './shared/services/data-load.service';
-
+import {HttpClientXsrfModule,HttpClientModule} from '@angular/common/http';
 import {SharedModule} from './shared/shared.module';
 import {MainModule} from './main/main.module';
 
@@ -31,6 +31,8 @@ export const MODULES = [
 BrowserModule.withServerTransition({ appId: 'portfolio' }),RouterModule.forRoot(routes),
 BrowserAnimationsModule,SharedModule,MainModule,NgbModule.forRoot(),
 ServiceWorkerModule.register('/ngsw-worker.js',{enabled:environment.production}),
+HttpClientModule,
+HttpClientXsrfModule.withOptions({cookieName:'csrfToken',headerName:'CSRF-Token'})
 //WebControllerModule.forRoot(commands,CommandsService,{continuous:true})
 ];
 
