@@ -1,8 +1,9 @@
 ---
 applications:
-- name: pavel-pleshko
+- name: pleshko-pavel
   memory: 256M
   instances: 1
   command: node ./server/dist/server.js
   timeout: 80
   host: pleshko-pavel
+  domain: mybluemix.net
