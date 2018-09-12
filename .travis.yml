@@ -13,6 +13,7 @@ deploy:
   manifest: manifest.yml
   username: $BLUEMIX_USER
   password: $BLUEMIX_PASS
+  region: eu-gb
   organization: $BLUEMIX_ORGANIZATION
   space: dev
   api: https://api.eu-gb.bluemix.net
