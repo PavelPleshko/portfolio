@@ -13,7 +13,7 @@ deploy:
   password:
     secure: QOIWqz0Uj1c7G+z2FI5VoEimgHAy3D9WMfoyjJQ3mlKD5Ccd10vNLGRQdYzhrM7495SlE7mHigFB5xdz8bgY4oe2gq8ogWUTPzQ7D7++pxD1pwSMkJn2hYtnGkTr5nzCC+FdDmZJuShGYLJF1nGWVsgNj6jse4WU3qtDMd+o3MGW0CnBjiTabxMyNKxwttqV+NYCYnmSGR86lVzOmWXdwyrFzAe6FQFLLgiPfSaFzWkN4j2THendfObXhnPzNLnYSM1czFH+Xr3yRE09jJ1UG6Qwnz7t/QCjhXliYafsSIuL6iaGTdVpdAtoD48uue/L4tIjcNGkj1v4fxnTAHxMz+FZxKksoUfbTVuGlqarNLlpZlr7k9mbG5adShTAnZXjSRlx85cTGWANz+Nn1+t9n+sWUJYd+gb3CPqMrkEbEzbYHcegFUwLtl2z6aKCwHnARgNusHqC6nzkrZQ5mrWu4paIchQmFKXUETPhCMXdzmsHL/F3e2YcuLGKa0SRne4BZCchS7bwQ9dPboFbzMU+O/Du5f5VvWZEKS7V+aaqytlB4JYy6az/uoBxkTbfpccXekD3OQ1r2z2Tk2n74Qfn2y1VBvb3/EC0oNIwIzFwBAmtd1OD9lcLwe9poiCQWwZIS96Ft1BVMexYOvCHxZaX/T3XYWbdv0vANjcwODgzgG8=
   organization: pavelpleshko92@mail.ru
-  space: staging
+  space: dev
   manifest: manifest-prod.yml
   region: eu-gb
   api: https://api.eu-gb.bluemix.net
