@@ -15,6 +15,6 @@ deploy:
   password: $BLUEMIX_PASS
   organization: $BLUEMIX_ORGANIZATION
   space: dev
-  api: https://api.ng.bluemix.net
+  api: https://api.eu-gb.bluemix.net
   on:
     branch: master
