@@ -7,13 +7,14 @@ script:
 - npm run build:ssr
 - npm run webpack:server
 deploy:
-  provider: cloudfoundry
+  edge: true
+  provider: bluemixcloudfoundry
   skip_cleanup: true
   manifest: manifest.yml
   username: $BLUEMIX_USER
   password: $BLUEMIX_PASS
   organization: $BLUEMIX_ORGANIZATION
-  space: $BLUEMIX_SPACE
+  space: dev
   api: https://api.ng.bluemix.net
   on:
     branch: master
