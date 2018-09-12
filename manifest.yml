@@ -1,6 +1,7 @@
 ---
 applications:
 - name: pleshko-pavel
+  path: .
   memory: 256M
   instances: 1
   command: node ./server/dist/server.js
