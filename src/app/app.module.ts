@@ -3,11 +3,13 @@ import { NgModule } from '@angular/core';
 import {ServiceWorkerModule} from '@angular/service-worker';
 import {RouterModule, Routes } from '@angular/router';
 import {BrowserAnimationsModule} from '@angular/platform-browser/animations';
-import {ContentService} from './shared/services/content.service';
-import {DataLoadService} from './shared/services/data-load.service';
 import {HttpClientXsrfModule,HttpClientModule} from '@angular/common/http';
+
 import {SharedModule} from './shared/shared.module';
 import {MainModule} from './main/main.module';
+
+import {ContentService} from './shared/services/content.service';
+import {DataLoadService} from './shared/services/data-load.service';
 
 import { AppComponent } from './app.component';
 import {NgbModule} from '@ng-bootstrap/ng-bootstrap';
@@ -42,7 +44,7 @@ ContentService,DataLoadService
 
 @NgModule({
   declarations: [
-    AppComponent,
+    AppComponent
   ],
   imports: [
     ...MODULES
