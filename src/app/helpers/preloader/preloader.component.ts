@@ -6,10 +6,10 @@ import {DataLoadService} from '../../shared/services/data-load.service';
   styleUrls: ['./preloader.component.scss']
 })
 export class PreloaderComponent{
-contentLoaded:boolean;
-  constructor(public dataLoadService:DataLoadService) {
-  this.dataLoadService.contentLoaded.subscribe((loaded)=>{
- 		this.contentLoaded = loaded;	
+contentLoaded: boolean;
+  constructor(public dataLoadService: DataLoadService) {
+  this.dataLoadService.contentLoaded.subscribe((loaded) => {
+ 		this.contentLoaded = loaded;
  	});
  	 }
 

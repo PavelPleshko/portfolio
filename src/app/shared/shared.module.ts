@@ -1,4 +1,4 @@
-import { NgModule,ModuleWithProviders } from '@angular/core';
+import { NgModule, ModuleWithProviders } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import {ReactiveFormsModule} from '@angular/forms';
 import {MatMenuModule} from '@angular/material/menu';
@@ -18,33 +18,33 @@ import { LogoComponent } from './components/core/logo/logo.component';
 import {ScrollService} from './services/scroll.service';
 import { SocialsComponent } from './components/socials/socials.component';
 
-export const MODULES=[
-CommonModule,ReactiveFormsModule
+export const MODULES = [
+CommonModule, ReactiveFormsModule
 ];
 
 export const COMPONENTS = [
-PreloaderComponent,BannerComponent,LogoComponent,SocialsComponent
+PreloaderComponent, BannerComponent, LogoComponent, SocialsComponent
 ];
 
-export const MATERIAL_MODULES=[
-MatMenuModule,MatIconModule,MatToolbarModule,MatButtonModule,
-MatProgressSpinnerModule,MatTooltipModule,MatProgressBarModule,
-MatCardModule,MatInputModule,MatListModule
+export const MATERIAL_MODULES = [
+MatMenuModule, MatIconModule, MatToolbarModule, MatButtonModule,
+MatProgressSpinnerModule, MatTooltipModule, MatProgressBarModule,
+MatCardModule, MatInputModule, MatListModule
 ];
 
 @NgModule({
   imports: [
-    ...MODULES,...MATERIAL_MODULES
+    ...MODULES, ...MATERIAL_MODULES
     ],
   declarations: [...COMPONENTS],
-  exports:[...MATERIAL_MODULES,...MODULES,...COMPONENTS],
+  exports: [...MATERIAL_MODULES, ...MODULES, ...COMPONENTS],
 })
 
-export class SharedModule { 
+export class SharedModule {
 	 static forRoot(): ModuleWithProviders {
     return {
       ngModule: SharedModule,
       providers: [ScrollService]
-    }
+    };
   }
 }

@@ -22,6 +22,7 @@ contactForm:FormGroup;
 matcher;
 submitted:boolean = false;
 error:string = '';
+isProcessing:boolean = false;
 
   constructor(public fb:FormBuilder,public contactsService:ContactsService) { 
   	this.matcher = new ErrorStateMatcher();
@@ -35,9 +36,11 @@ error:string = '';
 
   submitForm(){
   	if(this.contactForm.valid){
+      this.isProcessing = true;
   		this.contactsService.sendEmail(this.contactForm.value)
 
       .subscribe((data)=>{
+        this.isProcessing = false;
         if(data.ok){
           this.submitted = true;
           this.error = '';

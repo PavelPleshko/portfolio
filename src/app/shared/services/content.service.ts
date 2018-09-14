@@ -1,5 +1,5 @@
 import { Injectable } from '@angular/core';
-import {createClient,ContentfulClientApi} from 'contentful';
+import {createClient, ContentfulClientApi} from 'contentful';
 import {environment} from '../../../environments/environment';
 import {Observable} from 'rxjs/Observable';
 import {fromPromise} from 'rxjs/observable/fromPromise';
@@ -8,27 +8,27 @@ import {BehaviorSubject} from 'rxjs/BehaviorSubject';
 
 @Injectable()
 export class ContentService {
-	currentProjectGallery:BehaviorSubject<any> = new BehaviorSubject(null);
+	currentProjectGallery: BehaviorSubject<any> = new BehaviorSubject(null);
 
-client:ContentfulClientApi;
+client: ContentfulClientApi;
   constructor() {
   this.client = createClient({
-  	space:environment.contentful.space_id,
-  	accessToken:environment.contentful.access_token
-  })
- 
+  	space: environment.contentful.space_id,
+  	accessToken: environment.contentful.access_token
+  });
+
 }
 
 getSkillsets(){
 	const promise = this.client.getEntries({
-		content_type:'skillset'
+		content_type: 'skillset'
 	});
 	return fromPromise(promise).pipe(map(this.transformCollection));
 }
 
 getAboutInfo(){
 	const promise = this.client.getEntries({
-		content_type:'about'
+		content_type: 'about'
 	});
 	return fromPromise(promise).pipe(map(this.transformCollection));
 	}
@@ -36,7 +36,7 @@ getAboutInfo(){
 
 getStatus(){
 	const promise = this.client.getEntries({
-		content_type:'status'
+		content_type: 'status'
 	});
 	return fromPromise(promise).pipe(map(this.transformCollection));
 }
@@ -44,28 +44,28 @@ getStatus(){
 
 getServices(){
 	const promise = this.client.getEntries({
-		content_type:'webproducts'
+		content_type: 'webproducts'
 	});
 	return fromPromise(promise).pipe(map(this.transformCollection));
 }
 
 getProjects(){
 	const promise = this.client.getEntries({
-		content_type:'project'
+		content_type: 'project'
 	});
-	return fromPromise(promise).pipe(map(this.transformCollection),map(items=>items.reverse()));
+	return fromPromise(promise).pipe(map(this.transformCollection), map(items => items.reverse()));
 }
 
 getSocials(){
 	const promise = this.client.getEntries({
-		content_type:'socials'
+		content_type: 'socials'
 	});
 	return fromPromise(promise).pipe(map(this.transformCollection));
 }
 
 getResume(){
 		const promise = this.client.getEntries({
-		content_type:'resume'
+		content_type: 'resume'
 	});
 	return fromPromise(promise).pipe(map(this.transformCollection));
 }
@@ -81,8 +81,8 @@ closeCurrentGallery(){
 
 
 	transformCollection(entryCollection){
-		return entryCollection.items.map(item=>{
-			return item.fields})
-		.sort((item,item2)=>item.id - item2.id);
+		return entryCollection.items.map(item => {
+			return item.fields; })
+		.sort((item, item2) => item.id - item2.id);
 	}
 }

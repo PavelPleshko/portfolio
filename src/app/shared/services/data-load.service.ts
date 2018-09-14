@@ -3,9 +3,9 @@ import {BehaviorSubject} from 'rxjs/BehaviorSubject';
 
 @Injectable()
 export class DataLoadService {
-contentLoaded:BehaviorSubject<boolean>= new BehaviorSubject<boolean>(true);
+contentLoaded: BehaviorSubject<boolean>= new BehaviorSubject<boolean>(true);
   constructor() {
-  
+
    }
 
 

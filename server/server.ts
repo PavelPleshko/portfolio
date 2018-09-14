@@ -67,7 +67,7 @@ var requestsSinceLastTime = 0;
 app.get('*.*', express.static(join(DIST_FOLDER, 'browser'), { maxAge: oneWeek, lastModified: true }));
 app.get('*', function (req, res) {
   var csrfToken = req.csrfToken() || null;
-  res.cookie("csrfToken", csrfToken, { sameSite: true, httpOnly: true });
+  res.cookie("csrfToken", csrfToken, { sameSite: true, httpOnly: false });
   res.render('index', { req: req });
   console.log(req.originalUrl, 'New get request');
   console.log(++requestsSinceLastTime, ' requests since last time');

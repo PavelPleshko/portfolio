@@ -37,12 +37,16 @@
                       <textarea [errorStateMatcher]="matcher" #messageInput matInput class="" id="message" rows="5" formControlName="message" placeholder="Type your message in here..."></textarea>
                        <mat-hint align="end">{{messageInput.value?.length || 0}}</mat-hint>
                        <mat-error *ngIf="contactForm.get('message').hasError('required')">
-				      Message is <strong>required</strong>
-				    </mat-error>
+				                  Message is <strong>required</strong>
+				               </mat-error>
                     </mat-form-field>
                    </div>
 
-                      <div class=""><button (click)="submitForm()" class="pw-btn pw-btn-primary btn-rounded px-5">Submit</button></div>
+                      <div class="">
+                        <button (click)="submitForm()" class="pw-btn pw-btn-primary btn-rounded px-5" [class.pw-btn-disabled]="isProcessing">
+                          {isProcessing ? 'Sending...' : 'Submit'}
+                        </button>
+                      </div>
                     
                   </form>
 
