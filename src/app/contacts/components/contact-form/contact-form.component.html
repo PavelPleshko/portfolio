@@ -44,7 +44,7 @@
 
                       <div class="">
                         <button (click)="submitForm()" class="pw-btn pw-btn-primary btn-rounded px-5" [class.pw-btn-disabled]="isProcessing">
-                          {isProcessing ? 'Sending...' : 'Submit'}
+                          {{isProcessing ? 'Sending...' : 'Submit'}}
                         </button>
                       </div>
                     
