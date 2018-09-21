@@ -27,7 +27,8 @@ const routes:Routes = [
 desc:'Pleshko Pavel. Contact information'}},
 {path:'projects',loadChildren:'./projects/projects.module#ProjectsModule',data:{title:'Projects',
 desc:'Pleshko Pavel. Project list'}},
-{path:'',pathMatch:'full',redirectTo:'home'},
+{path:'',pathMatch:'full',redirectTo:'home',data:{title:'Home page',desc:
+'Pleshko Pavel. Full stack web developer. Home page'}},
 {path:'**',redirectTo:'home'}
 ];
 
