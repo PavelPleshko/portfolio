@@ -41,10 +41,10 @@ createLinkForCanonicalURL(){
 	    this.doc.head.appendChild(link);
 	    link.setAttribute('href', this.doc.URL);  
 	}catch(err){
-		
+
 	}
 
 	}     
 }
 
-}
+
