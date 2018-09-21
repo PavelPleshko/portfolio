@@ -21,14 +21,13 @@ import {environment} from '../environments/environment';
 
 
 const routes:Routes = [
-{path:'home',loadChildren:'./main/main.module#MainModule',data:{title:'Home page',desc:
+{path:'home',loadChildren:'./main/main.module#MainModule',data:{title:'Home page - Portfolio',desc:
 'Pleshko Pavel. Full stack web developer. Home page'}},
-{path:'contacts',loadChildren:'./contacts/contacts.module#ContactsModule',data:{title:'Contacts',
+{path:'contacts',loadChildren:'./contacts/contacts.module#ContactsModule',data:{title:'Contacts - Portfolio',
 desc:'Pleshko Pavel. Contact information'}},
-{path:'projects',loadChildren:'./projects/projects.module#ProjectsModule',data:{title:'Projects',
+{path:'projects',loadChildren:'./projects/projects.module#ProjectsModule',data:{title:'Projects - Portfolio',
 desc:'Pleshko Pavel. Project list'}},
-{path:'',pathMatch:'full',redirectTo:'home',data:{title:'Home page',desc:
-'Pleshko Pavel. Full stack web developer. Home page'}},
+{path:'',pathMatch:'full',redirectTo:'home'},
 {path:'**',redirectTo:'home'}
 ];
 

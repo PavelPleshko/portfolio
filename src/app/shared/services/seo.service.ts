@@ -7,7 +7,9 @@ import {filter,map,mergeMap} from 'rxjs/operators';
 	providedIn:'root'
 })
 export class SeoService {
-	
+	defaultTitle:string = 'Pleshko Pavel - Portfolio';
+	defaultDesc:string = `Pleshko Pavel. Full stack web developer`;
+
 	constructor(private router:Router,private route:ActivatedRoute,
 		private metaService:Meta,
 		private titleService:Title){
@@ -22,8 +24,8 @@ export class SeoService {
 			mergeMap(route=>route.data)
 			)
 		.subscribe((event)=>{
-				this.titleService.setTitle(event['title']);
-				this.metaService.updateTag({name:'description',content:event['desc']});
+				this.titleService.setTitle(event['title'] || this.defaultTitle);
+				this.metaService.updateTag({name:'description',content:event['desc'] || this.defaultDesc});
 		})
 	}
 
