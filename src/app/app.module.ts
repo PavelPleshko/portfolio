@@ -18,16 +18,14 @@ import {environment} from '../environments/environment';
 //import {WebControllerModule} from './shared/modules/web-controller/web-controller.module';
 //import {CommandsService} from './shared/services/commands.service';
 //import {commands} from './shared/commands';
+import {metaData} from './seo/metaData';
 
 
 const routes:Routes = [
-{path:'home',loadChildren:'./main/main.module#MainModule',data:{title:'Home page - Portfolio',desc:
-'Pleshko Pavel. Full stack web developer. Home page'}},
-{path:'contacts',loadChildren:'./contacts/contacts.module#ContactsModule',data:{title:'Contacts - Portfolio',
-desc:'Pleshko Pavel. Contact information'}},
-{path:'projects',loadChildren:'./projects/projects.module#ProjectsModule',data:{title:'Projects - Portfolio',
-desc:'Pleshko Pavel. Project list'}},
-{path:'',pathMatch:'full',redirectTo:'home'},
+{path:'home',loadChildren:'./main/main.module#MainModule',data:metaData.home},
+{path:'contacts',loadChildren:'./contacts/contacts.module#ContactsModule',data:metaData.contacts},
+{path:'projects',loadChildren:'./projects/projects.module#ProjectsModule',data:metaData.projects},
+{path:'',pathMatch:'full',redirectTo:'home',data:metaData.home},
 {path:'**',redirectTo:'home'}
 ];
 
