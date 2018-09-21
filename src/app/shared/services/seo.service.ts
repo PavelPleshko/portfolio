@@ -11,10 +11,12 @@ import {defaultMetaItem} from '../../seo/metaData';
 })
 export class SeoService {
 
-	constructor(@Inject(DOCUMENT) private doc,
+	constructor(
+		@Inject(DOCUMENT) private doc,
 		private router:Router,private route:ActivatedRoute,
 		private metaService:Meta,
-		private titleService:Title){
+		private titleService:Title
+		){
 		this.createLinkForCanonicalURL();
 		this.router.events.pipe(
 			filter((event:RouterEvent)=>event instanceof NavigationEnd),
@@ -33,11 +35,15 @@ export class SeoService {
 	}
 
 createLinkForCanonicalURL(){
-	if(typeof this.doc != 'undefined' && this.doc.createElement){
+	try{
 		let link: HTMLLinkElement = this.doc.createElement('link');
 	    link.setAttribute('rel', 'canonical');
 	    this.doc.head.appendChild(link);
 	    link.setAttribute('href', this.doc.URL);  
+	}catch(err){
+		
+	}
+
 	}     
 }
 
