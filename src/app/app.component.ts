@@ -4,6 +4,7 @@ import { Router, NavigationStart, NavigationEnd } from '@angular/router';
 import { Location, PopStateEvent } from "@angular/common";
 
 import {ContentService} from './shared/services/content.service';
+import {SeoService} from './shared/services/seo.service';
 //import {WebControllerService} from './shared/modules/web-controller/services/web-controller.service';
 
 @Component({
@@ -19,6 +20,7 @@ lastPoppedUrl: string;
 
  constructor(private contentService:ContentService,
  	private router:Router,private location: Location,
+     private seo:SeoService
     // private web:WebControllerService
      ){
 
