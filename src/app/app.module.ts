@@ -1,7 +1,7 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 import {ServiceWorkerModule} from '@angular/service-worker';
-import {RouterModule, Routes } from '@angular/router';
+import {RouterModule, Routes,PreloadAllModules } from '@angular/router';
 import {BrowserAnimationsModule} from '@angular/platform-browser/animations';
 import {HttpClientXsrfModule,HttpClientModule} from '@angular/common/http';
 
@@ -30,7 +30,7 @@ const routes:Routes = [
 
 
 export const MODULES = [
-BrowserModule.withServerTransition({ appId: 'portfolio' }),RouterModule.forRoot(routes),
+BrowserModule.withServerTransition({ appId: 'portfolio' }),RouterModule.forRoot(routes,{preloadingStrategy:PreloadAllModules}),
 BrowserAnimationsModule,SharedModule,MainModule,NgbModule.forRoot(),
 ServiceWorkerModule.register('/ngsw-worker.js',{enabled:environment.production}),
 HttpClientModule,
