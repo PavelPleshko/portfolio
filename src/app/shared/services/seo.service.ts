@@ -1,18 +1,21 @@
-import { Injectable } from '@angular/core';
+import { Injectable,Inject } from '@angular/core';
 import {NavigationEnd,Router,RouterEvent,ActivatedRoute} from '@angular/router';
 import { Meta, Title } from '@angular/platform-browser';
 import {filter,map,mergeMap} from 'rxjs/operators';
+import { DOCUMENT } from '@angular/common';
+
+import {defaultMetaItem} from '../../seo/metaData';
 
 @Injectable({
 	providedIn:'root'
 })
 export class SeoService {
-	defaultTitle:string = 'Pleshko Pavel - Portfolio';
-	defaultDesc:string = `Pleshko Pavel. Full stack web developer`;
 
-	constructor(private router:Router,private route:ActivatedRoute,
+	constructor(@Inject(DOCUMENT) private doc,
+		private router:Router,private route:ActivatedRoute,
 		private metaService:Meta,
 		private titleService:Title){
+		this.createLinkForCanonicalURL();
 		this.router.events.pipe(
 			filter((event:RouterEvent)=>event instanceof NavigationEnd),
 			map(event=>{
@@ -24,10 +27,16 @@ export class SeoService {
 			mergeMap(route=>route.data)
 			)
 		.subscribe((event)=>{
-				this.titleService.setTitle(event['title'] || this.defaultTitle);
-				this.metaService.updateTag({name:'description',content:event['desc'] || this.defaultDesc});
+				this.titleService.setTitle(event['title'] || defaultMetaItem.title);
+				this.metaService.updateTag({name:'description',content:event['desc'] || defaultMetaItem.desc});
 		})
 	}
 
+createLinkForCanonicalURL(){
+	let link: HTMLLinkElement = this.doc.createElement('link');
+    link.setAttribute('rel', 'canonical');
+    this.doc.head.appendChild(link);
+    link.setAttribute('href', this.doc.URL);       
+}
 
 }

@@ -12,6 +12,11 @@ interface MetaItem{
 	title:string;
 	desc:string;
 }
+export const defaultMetaItem:MetaItem = {
+		title:'Home page - Portfolio',
+		desc:`Pleshko Pavel. Full stack web developer. Home page. Development and design of websites and web applications.
+		Javascript, Angular, React, NodeJs, MongoDb and other technologies.`
+}
 
 export const metaData:MetaData = {
 	home:{

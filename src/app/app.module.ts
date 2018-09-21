@@ -22,11 +22,10 @@ import {metaData} from './seo/metaData';
 
 
 const routes:Routes = [
-{path:'home',loadChildren:'./main/main.module#MainModule',data:metaData.home},
 {path:'contacts',loadChildren:'./contacts/contacts.module#ContactsModule',data:metaData.contacts},
 {path:'projects',loadChildren:'./projects/projects.module#ProjectsModule',data:metaData.projects},
-{path:'',pathMatch:'full',redirectTo:'home',data:metaData.home},
-{path:'**',redirectTo:'home'}
+{path:'',pathMatch:'full',loadChildren:'./main/main.module#MainModule',data:metaData.home},
+{path:'**',redirectTo:''}
 ];
 
 
