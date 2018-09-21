@@ -10,6 +10,7 @@ import {defaultMetaItem} from '../../seo/metaData';
 	providedIn:'root'
 })
 export class SeoService {
+canonicalLinks:any={};
 
 	constructor(
 		@Inject(DOCUMENT) private doc,
@@ -17,7 +18,6 @@ export class SeoService {
 		private metaService:Meta,
 		private titleService:Title
 		){
-		this.createLinkForCanonicalURL();
 		this.router.events.pipe(
 			filter((event:RouterEvent)=>event instanceof NavigationEnd),
 			map(event=>{
@@ -29,6 +29,7 @@ export class SeoService {
 			mergeMap(route=>route.data)
 			)
 		.subscribe((event)=>{
+				this.createLinkForCanonicalURL();
 				this.titleService.setTitle(event['title'] || defaultMetaItem.title);
 				this.metaService.updateTag({name:'description',content:event['desc'] || defaultMetaItem.desc});
 		})
@@ -36,10 +37,17 @@ export class SeoService {
 
 createLinkForCanonicalURL(){
 	try{
-		let link: HTMLLinkElement = this.doc.createElement('link');
-	    link.setAttribute('rel', 'canonical');
-	    this.doc.head.appendChild(link);
-	    link.setAttribute('href', this.doc.URL);  
+		let url:string = this.doc.URL;
+		if(this.canonicalLinks[url]){
+			return;
+		}else{
+			this.canonicalLinks[url]=true;
+			let link: HTMLLinkElement = this.doc.createElement('link');
+		    link.setAttribute('rel', 'canonical');
+		    this.doc.head.appendChild(link);
+		    link.setAttribute('href', url);  
+		}
+		
 	}catch(err){
 
 	}
