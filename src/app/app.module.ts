@@ -34,7 +34,7 @@ BrowserModule.withServerTransition({ appId: 'portfolio' }),RouterModule.forRoot(
 BrowserAnimationsModule,SharedModule,MainModule,NgbModule.forRoot(),
 ServiceWorkerModule.register('/ngsw-worker.js',{enabled:environment.production}),
 HttpClientModule,
-HttpClientXsrfModule.withOptions({cookieName:'csrfToken',headerName:'CSRF-Token'})
+HttpClientXsrfModule.withOptions({cookieName:'csrfToken',headerName:'CSRF-token'})
 //WebControllerModule.forRoot(commands,CommandsService,{continuous:true})
 ];
 

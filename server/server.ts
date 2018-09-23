@@ -43,11 +43,32 @@ renderModuleFactory(AppServerModuleNgFactory,{
 app.set('view engine', 'html');
 app.set('views', join(DIST_FOLDER,'browser'));
 
-
 app.use(bodyParser.urlencoded({ extended: true }));
 app.use(bodyParser.json());
+app.post('/send',function(req,res){
+var mailOpts = {
+  to:process.env.EMAIL_TO,
+  subject:req.body.name + " left a message from portfolio website",
+  from:process.env.CLIENT_EMAIL,
+  text:assisters.createMsg(req.body),
+  html:assisters.createHtml(req.body)
+}
+smtpTransport.sendMail(mailOpts,function(response,error){
+  if(error){
+    res.json(error);
+  }else{
+    res.json(response);
+  }
+})
+})
 app.use(cookieParser());
-app.use(csrf({ cookie: true }));
+app.use(csrf({ cookie: true}));
+app.use((req, res, next) =>{
+  let csrfToken = req.csrfToken();
+  console.log(csrfToken);
+  res.cookie('csrfToken', csrfToken, { sameSite: true, httpOnly: false });
+  next();
+});
 app.use(cors());
 app.use(helmet());
 app.use(compression());
@@ -65,9 +86,9 @@ var smtpTransport = nodemailer.createTransport({
 var oneWeek = 1000 * 60 * 60 * 24 * 7;
 var requestsSinceLastTime = 0;
 app.get('*.*', express.static(join(DIST_FOLDER, 'browser'), { maxAge: oneWeek, lastModified: true }));
+
 app.get('*', function (req, res) {
-  var csrfToken = req.csrfToken() || null;
-  res.cookie("csrfToken", csrfToken, { sameSite: true, httpOnly: false });
+
   res.render('index', { req: req });
   console.log(req.originalUrl, 'New get request');
   console.log(++requestsSinceLastTime, ' requests since last time');
@@ -75,22 +96,9 @@ app.get('*', function (req, res) {
 
 
 
-app.post('/send',function(req,res){
-var mailOpts = {
-	to:process.env.EMAIL_TO,
-	subject:req.body.name + " left a message from portfolio website",
-	from:process.env.CLIENT_EMAIL,
-	text:assisters.createMsg(req.body),
-	html:assisters.createHtml(req.body)
-}
-smtpTransport.sendMail(mailOpts,function(response,error){
-	if(error){
-		res.json(error);
-	}else{
-		res.json(response);
-	}
-})
-})
+
+
+
 
 
 
